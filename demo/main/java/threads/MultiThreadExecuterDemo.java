@@ -3,12 +3,16 @@
  */
 
 package threads;
+import org.apache.log4j.NDC;
+
 import net.sitsol.victoria.configs.VctInitApParam;
+import net.sitsol.victoria.demo.models.userinfo.DemoLoginUserInfo;
 import net.sitsol.victoria.exceptions.VctRuntimeException;
 import net.sitsol.victoria.log4j.VctLogger;
 import net.sitsol.victoria.spring.VctBeanFactory;
-import net.sitsol.victoria.threads.SimpleMultiThreadExecuter;
+import net.sitsol.victoria.threadlocals.ThreadUserInfo;
 import net.sitsol.victoria.utils.statics.VctBeanUtils;
+import net.sitsol.victoria.utils.threads.SimpleMultiThreadExecuter;
 
 
 /**
@@ -31,16 +35,21 @@ public class MultiThreadExecuterDemo {
 		// アプリケーション・パラメータ読込み内容のログ出力
 		VctBeanUtils.writePropertiesInfoLog(VctInitApParam.getInstance());
 
+		DemoLoginUserInfo loginUserInfo = new DemoLoginUserInfo("demo-user", "デモユーザー");
+		NDC.push(loginUserInfo.getUserId());
+
 		VctLogger.getLogger().info("▼▼▼開始▼▼▼");
 
-		try {
+		try ( ThreadUserInfo threadUserInfo = new ThreadUserInfo(loginUserInfo) ) {
 			// 簡易版マルチスレッドテスト
 			simpleMurtiThreadTest();
 
 		} catch (Exception ex) {
 			VctLogger.getLogger().error("エラーあり", ex);
+
 		} finally {
 			VctLogger.getLogger().info("▲▲▲終了▲▲▲");
+			NDC.remove();
 		}
 
 	}

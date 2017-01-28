@@ -1,18 +1,19 @@
 /**
- * 
+ *
  */
 package net.sitsol.victoria.demo.configs;
 
 import net.sitsol.victoria.configs.VctInitApParam;
 
 /**
- * 
+ * デモ用-静的アプリケーション・パラメータ
+ *
  * @author shibano
  */
 public class DemoInitApParam extends VctInitApParam {
 
 	/* -- static ----------------------------------------------------------- */
-	
+
 	private static final long serialVersionUID = 3086205686859952955L;
 
 
@@ -22,13 +23,13 @@ public class DemoInitApParam extends VctInitApParam {
 	public static DemoInitApParam getInstance() {
 		return (DemoInitApParam) VctInitApParam.getInstance();
 	}
-	
-	
+
+
 	// -------------------------------------------------------------------------
 	//  field
 	// -------------------------------------------------------------------------
-	
-	
+
+
 	// -------------------------------------------------------------------------
 	//  method
 	// -------------------------------------------------------------------------
