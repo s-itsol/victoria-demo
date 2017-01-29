@@ -5,9 +5,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
 
-	<!-- アプリケーション・パラメータオブジェクト -->
-	<bean id="InitApParam"
-		class="net.sitsol.victoria.demo.configs.DemoInitApParam"
+	<!-- 静的アプリケーション・パラメータオブジェクト -->
+	<bean id="StaticApParam"
+		class="net.sitsol.victoria.demo.configs.DemoStaticApParam"
 		scope="singleton">
 		<!-- ===== ※環境依存など、非デフォルトなパラメータ値はここで設定する ===== -->
 		<property name="dispEnvName">
