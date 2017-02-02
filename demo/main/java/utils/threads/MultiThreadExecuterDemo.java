@@ -2,9 +2,8 @@
  *
  */
 
-package threads;
-import common.DemoExecuter;
-import common.IDemo;
+package utils.threads;
+import demotools.BsDemoExecute;
 import net.sitsol.victoria.exceptions.VctRuntimeException;
 import net.sitsol.victoria.log4j.VctLogger;
 import net.sitsol.victoria.utils.threads.SimpleMultiThreadExecuter;
@@ -15,7 +14,7 @@ import net.sitsol.victoria.utils.threads.SimpleMultiThreadExecuter;
  *
  * @author shibano
  */
-public class MultiThreadExecuterDemo implements IDemo {
+public class MultiThreadExecuterDemo extends BsDemoExecute {
 
 	/**
 	 * 動作検証用スレッドパラメータ
@@ -40,7 +39,7 @@ public class MultiThreadExecuterDemo implements IDemo {
 	 */
 	public static void main(String[] args) {
 		// メソッド実行要求
-		DemoExecuter.doExecute(new MultiThreadExecuterDemo(), true, args);
+		BsDemoExecute.doExecute(new MultiThreadExecuterDemo(), true, args);
 	}
 
 	/**

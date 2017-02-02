@@ -1,7 +1,7 @@
 /**
  *
  */
-package common;
+package demotools;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -14,17 +14,21 @@ import net.sitsol.victoria.threadlocals.ThreadLog4jNdc;
 import net.sitsol.victoria.threadlocals.ThreadUserInfo;
 
 /**
- * デモ用-コマンドライン実行クラス
+ * プログラミング使用例デモ-基底クラス
  *
  * @author shibano
  */
-public class DemoExecuter {
+public abstract class BsDemoExecute {
 
 	/**
 	 * メソッド実行要求
 	 *  共通処理制御を行って各デモメソッドを実行する
+	 * @param demoExecute コマンドライン実行クラスのインスタンス
+	 * @param isApContextInitMode アプリケーション・コンテキスト初期処理実行モード ※true：初期処理を実行する
+	 * @param args コマンドライン引数群
+	 * @param <ExecuteClass> デモ実行クラス型
 	 */
-	public static void doExecute(IDemo demoExecute, boolean isApContextInitMode, String[] args) {
+	public static <ExecuteClass extends BsDemoExecute> void doExecute(ExecuteClass demoExecute, boolean isApContextInitMode, String[] args) {
 
 		// ログ初期処理 ※実行結果が確認できないので常に実行される
 		VctLogger.initialize();
@@ -60,5 +64,11 @@ public class DemoExecuter {
 			VctLogger.getLogger().info("▲▲▲終了▲▲▲");
 		}
 	}
+
+	/**
+	 * 各デモメソッド実行
+	 * @param args
+	 */
+	protected abstract void execute(String[] args);
 
 }

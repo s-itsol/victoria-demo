@@ -3,8 +3,7 @@
  */
 
 package configs;
-import common.DemoExecuter;
-import common.IDemo;
+import demotools.BsDemoExecute;
 import net.sitsol.victoria.configs.VctStaticApParam;
 import net.sitsol.victoria.demo.configs.DemoStaticApParam;
 import net.sitsol.victoria.log4j.VctLogger;
@@ -16,7 +15,7 @@ import net.sitsol.victoria.utils.statics.VctBeanUtils;
  *
  * @author shibano
  */
-public class StaticApParamDemo implements IDemo {
+public class StaticApParamDemo extends BsDemoExecute {
 
 	/**
 	 * メインメソッド
@@ -24,7 +23,7 @@ public class StaticApParamDemo implements IDemo {
 	 */
 	public static void main(String[] args) {
 		// メソッド実行要求
-		DemoExecuter.doExecute(new StaticApParamDemo(), true, args);
+		BsDemoExecute.doExecute(new StaticApParamDemo(), true, args);
 	}
 
 	/**

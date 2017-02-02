@@ -31,6 +31,10 @@ public class DemoStaticApParam extends VctStaticApParam {
 	private String demoUserId				= "demo-user-id";			// デモ用ユーザーID
 	private String demoUserName			= "デモユーザー";			// デモ用ユーザー名
 
+	// HTTPリクエスト支援クラス用
+	private String zipApiBaseUrl			= "http://zip.cgis.biz/";	// 郵便番号取得API-基本URL
+	private String zipApiXmlPageUrl		= "xml/zip.php";			// 郵便番号取得API-XML版ページURL
+
 
 	// -------------------------------------------------------------------------
 	//  method
@@ -56,6 +60,22 @@ public class DemoStaticApParam extends VctStaticApParam {
 
 	public void setDemoUserName(String demoUserName) {
 		this.demoUserName = demoUserName;
+	}
+
+	public String getZipApiBaseUrl() {
+		return zipApiBaseUrl;
+	}
+
+	public void setZipApiBaseUrl(String zipApiBaseUrl) {
+		this.zipApiBaseUrl = zipApiBaseUrl;
+	}
+
+	public String getZipApiXmlPageUrl() {
+		return zipApiXmlPageUrl;
+	}
+
+	public void setZipApiXmlPageUrl(String zipApiXmlPageUrl) {
+		this.zipApiXmlPageUrl = zipApiXmlPageUrl;
 	}
 
 }
