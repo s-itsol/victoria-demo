@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="demo/main/java"/>
+	<classpathentry kind="src" output="bin" path="demo/main/java"/>
 	<classpathentry kind="src" path="src/main/config"/>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="lib" path="/victoria-libs/antlr-2.7.5.jar"/>
@@ -30,6 +30,5 @@
 	<classpathentry kind="lib" path="/victoria-libs/xwork-core-2.1.6.jar"/>
 	<classpathentry kind="lib" path="/victoria-libs/servlet-api-3.0.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/victoria"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/victoria-libs"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
 </classpath>

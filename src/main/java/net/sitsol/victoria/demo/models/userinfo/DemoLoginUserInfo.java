@@ -12,6 +12,11 @@ import net.sitsol.victoria.models.userinfo.SimpleUserInfoModel;
  */
 public class DemoLoginUserInfo extends SimpleUserInfoModel {
 
+	/* -- static ----------------------------------------------------------- */
+
+	private static final long serialVersionUID = 1L;
+
+
 	// ------------------------------------------------------------------------
 	//  field
 	// ------------------------------------------------------------------------
