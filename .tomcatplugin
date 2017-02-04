@@ -28,7 +28,6 @@
         <webClassPathEntry>/victoria-libs/log4j-1.2.12.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/ognl-2.7.3.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/oro-2.0.8.jar</webClassPathEntry>
-        <webClassPathEntry>/victoria-libs/servlet-api-3.0.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/spring-beans-2.0.4.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/spring-context-2.0.4.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/spring-core-2.0.4.jar</webClassPathEntry>
