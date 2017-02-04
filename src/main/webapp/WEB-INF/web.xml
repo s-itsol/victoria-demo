@@ -4,18 +4,16 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 	version="2.4">
 
+	<display-name>victoria-demo</display-name>
+
 	<!-- サーブレット・コンテキスト・リスナー -->
 	<listener>
-		<listener-class>
-			net.sitsol.victoria.setvlet.VctServletContextListener
-		</listener-class>
+		<listener-class>net.sitsol.victoria.demo.servlet.DemoServletContextListener</listener-class>
 	</listener>
 
 	<!-- HTTPセッション・リスナー -->
 	<listener>
-		<listener-class>
-			net.sitsol.victoria.setvlet.VctHttpSessionListener
-		</listener-class>
+		<listener-class>net.sitsol.victoria.setvlet.VctHttpSessionListener</listener-class>
 	</listener>
 
 </web-app>
