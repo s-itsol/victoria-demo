@@ -22,9 +22,12 @@
         <webClassPathEntry>/victoria-libs/commons-logging-1.1.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/commons-validator-1.5.1.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/log4j-1.2.12.jar</webClassPathEntry>
+        <webClassPathEntry>/victoria-libs/spring-aop-4.3.6.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/spring-beans-4.3.6.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/spring-context-4.3.6.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/spring-core-4.3.6.RELEASE.jar</webClassPathEntry>
+        <webClassPathEntry>/victoria-libs/spring-expression-4.3.6.RELEASE.jar</webClassPathEntry>
+        <webClassPathEntry>/victoria-libs/spring-web-4.3.6.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/spring-webmvc-4.3.6.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/velocity-1.5.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/velocity-dep-1.5.jar</webClassPathEntry>
