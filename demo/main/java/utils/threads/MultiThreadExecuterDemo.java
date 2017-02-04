@@ -76,7 +76,7 @@ public class MultiThreadExecuterDemo extends BsDemoExecute {
 							// ※インデックス範囲外例外が発生する処理
 							VctLogger.getLogger().info(dummyFlgs[1]);
 						} catch ( Exception ex ) {
-							throw new VctRuntimeException("コールバックされたアプリ側での処理でエラー発生！", ex);
+							throw new VctRuntimeException("コールバックされたアプリ側での処理で、あえて発生させたエラー！", ex);
 						}
 					}
 

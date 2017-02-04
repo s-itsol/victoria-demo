@@ -3,11 +3,13 @@
  */
 package utils;
 
+
+import org.apache.commons.lang.time.StopWatch;
+
 import demotools.BsDemoExecute;
 import net.sitsol.victoria.demo.configs.DemoStaticApParam;
 import net.sitsol.victoria.log4j.VctLogger;
 import net.sitsol.victoria.utils.HttpRequester;
-import net.sitsol.victoria.utils.VctStopWatch;
 
 /**
  * HTTPリクエスト支援クラス-プログラミング使用例
@@ -62,7 +64,8 @@ public class HttpRequesterDemo extends BsDemoExecute {
 				VctLogger.getLogger().info("リクエストURL：[" + url + "]");
 			}
 
-			VctStopWatch stopWatch = new VctStopWatch();
+			org.apache.commons.lang.time.StopWatch stopWatch = new StopWatch();
+			stopWatch.start();
 
 			// HTTPリクエスト実行
 			HttpRequester requester = new HttpRequester();
@@ -71,7 +74,7 @@ public class HttpRequesterDemo extends BsDemoExecute {
 			stopWatch.stop();
 
 			VctLogger.getLogger().info("GETリクエスト成功！"
-											+ "処理時間：[" + stopWatch.getStopWatch_().getTime() + "](ms)"
+											+ "処理時間：[" + stopWatch.getTime() + "](ms)"
 											+ ", 応答結果：[" + retText + "]"
 										);
 		}
