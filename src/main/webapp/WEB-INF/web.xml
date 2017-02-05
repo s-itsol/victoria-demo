@@ -18,20 +18,18 @@
 
 	<!-- Spring-MVCサーブレット -->
 	<servlet>
-		<servlet-name>springMvcServlet</servlet-name>
-		<servlet-class>net.sitsol.victoria.demo.servlet.DemoDispatcherServlet</servlet-class>
+		<servlet-name>SpringMvcServlet</servlet-name>
+		<servlet-class>net.sitsol.victoria.demo.servlet.spring.DemoDispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>
-				classpath:/beans-webmvc.xml
-			</param-value>
+			<param-value>classpath:/beans-webmvc.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<!-- Spring-MVCサーブレット・マッピング -->
 	<servlet-mapping>
-		<servlet-name>springMvcServlet</servlet-name>
+		<servlet-name>SpringMvcServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 

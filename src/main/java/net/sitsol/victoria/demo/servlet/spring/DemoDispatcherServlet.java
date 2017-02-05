@@ -1,9 +1,9 @@
 /**
  *
  */
-package net.sitsol.victoria.demo.servlet;
+package net.sitsol.victoria.demo.servlet.spring;
 
-import net.sitsol.victoria.setvlet.VctDispatcherServlet;
+import net.sitsol.victoria.setvlet.spring.VctDispatcherServlet;
 
 /**
  *

@@ -5,11 +5,11 @@ package demotools;
 
 import org.apache.commons.lang.StringUtils;
 
+import net.sitsol.victoria.beanfactory.spring.VctBeanFactory;
 import net.sitsol.victoria.demo.configs.DemoStaticApParam;
 import net.sitsol.victoria.demo.models.userinfo.DemoLoginUserInfo;
 import net.sitsol.victoria.log4j.VctLogger;
 import net.sitsol.victoria.models.userinfo.IUserInfo;
-import net.sitsol.victoria.spring.VctBeanFactory;
 import net.sitsol.victoria.threadlocals.ThreadLog4jNdc;
 import net.sitsol.victoria.threadlocals.ThreadUserInfo;
 
