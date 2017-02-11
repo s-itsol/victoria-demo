@@ -16,10 +16,10 @@
 		<listener-class>net.sitsol.victoria.setvlet.VctHttpSessionListener</listener-class>
 	</listener>
 
-	<!-- Spring-MVCサーブレット -->
+	<!-- Spring-Dispatcherサーブレット -->
 	<servlet>
-		<servlet-name>SpringMvcServlet</servlet-name>
-		<servlet-class>net.sitsol.victoria.demo.servlet.spring.DemoDispatcherServlet</servlet-class>
+		<servlet-name>SpringDispatcherServlet</servlet-name>
+		<servlet-class>net.sitsol.victoria.demo.servlet.spring.DemoSpringDispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:/beans-webmvc.xml</param-value>
@@ -27,10 +27,40 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
-	<!-- Spring-MVCサーブレット・マッピング -->
+	<!--  Spring-Dispatcherサーブレット・マッピング -->
 	<servlet-mapping>
-		<servlet-name>SpringMvcServlet</servlet-name>
+		<servlet-name>SpringDispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
+	<!-- Velocityサーブレット -->
+	<servlet>
+		<servlet-name>VelocityServlet</servlet-name>
+		<servlet-class>net.sitsol.victoria.setvlet.velocity.VctVelocityViewServlet</servlet-class>
+		<init-param>
+			<param-name>org.apache.velocity.toolbox</param-name>
+			<param-value>/WEB-INF/classes/velocity-toolbox.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>org.apache.velocity.properties</param-name>
+			<param-value>/WEB-INF/classes/velocity.properties</param-value>
+		</init-param>
+		<load-on-startup>10</load-on-startup>
+	</servlet>
+
+	<!-- Velocityサーブレット・マッピング -->
+	<servlet-mapping>
+		<servlet-name>VelocityServlet</servlet-name>
+		<url-pattern>*.vm</url-pattern>
+	</servlet-mapping>
+
+	<!-- Velocityサーブレットへの直接アクセス防止 -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Velocityサーブレット直接アクセス防止</web-resource-name>
+			<url-pattern>*.vm</url-pattern>
+		</web-resource-collection>
+		<auth-constraint></auth-constraint>
+	</security-constraint>
 
 </web-app>

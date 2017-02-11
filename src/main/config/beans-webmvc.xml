@@ -21,20 +21,33 @@
 	<!-- Spring-MVCのアノテーション使用設定 -->
 	<mvc:annotation-driven />
 
-	<!-- velocity設定 -->
-	<bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-		<property name="resourceLoaderPath" value="/WEB-INF/vm/" />
+	<!-- 静的コンテンツファイルパス ※アプリケーション・ルート配下のパス -->
+	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
+
+	<!-- リゾルバー設定
+		※Velocityサーブレットにフォワードする
+	-->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="" />
+		<property name="suffix" value=".vm" />
 	</bean>
 
+	<!-- velocity設定 -->
+<!--
+	<bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath" value="/WEB-INF/vm/" />
+		<property name="configLocation" value="/WEB-INF/classes/velocity.properties" />
+	</bean>
+-->
+
 	<!-- velocity用-viewResolver設定 -->
+<!--
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
 		<property name="contentType" value="text/html;charset=UTF-8" />
 		<property name="cache" value="true" />
 		<property name="prefix" value="" />
 		<property name="suffix" value=".vm" />
 	</bean>
-
-	<!-- 静的コンテンツファイルパス ※アプリケーション・ルート配下のパス -->
-	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
+-->
 
 </beans>
