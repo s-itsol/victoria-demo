@@ -10,12 +10,12 @@
 
 	<!-- 全体用ファイルアペンダ -->
 	<appender name="file" class="net.sitsol.victoria.log4j.DefaultDailyRollingFileAppender">
-		<param name="File" value="/Dev/Java/workspace/victoria-demo/log/victoriademo.log" />
+		<param name="File" value="/Dev/Java/workspace/victoria-demo/work/log/victoriademo.log" />
 	</appender>
 
 	<!-- 警告ログ用ファイルアペンダ -->
 	<appender name="warnfile" class="net.sitsol.victoria.log4j.DefaultDailyRollingFileAppender">
-		<param name="File" value="/Dev/Java/workspace/victoria-demo/log/warn_victoriademo.log" />
+		<param name="File" value="/Dev/Java/workspace/victoria-demo/work/log/warn_victoriademo.log" />
 		<!-- warnレベルを処理させる -->
 		<filter class="org.apache.log4j.varia.LevelRangeFilter" >
 			<param name="LevelMin"  value="WARN" />
@@ -28,7 +28,7 @@
 
 	<!-- エラーログ用ファイルアペンダ -->
 	<appender name="errorfile" class="net.sitsol.victoria.log4j.DefaultDailyRollingFileAppender">
-		<param name="File" value="/Dev/Java/workspace/victoria-demo/log/error_victoriademo.log" />
+		<param name="File" value="/Dev/Java/workspace/victoria-demo/work/log/error_victoriademo.log" />
 		<!-- error～fatalレベルを処理させる -->
 		<filter class="org.apache.log4j.varia.LevelRangeFilter" >
 			<param name="LevelMin"  value="ERROR" />
