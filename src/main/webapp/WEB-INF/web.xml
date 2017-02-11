@@ -36,7 +36,7 @@
 	<!-- Velocityサーブレット -->
 	<servlet>
 		<servlet-name>VelocityServlet</servlet-name>
-		<servlet-class>net.sitsol.victoria.setvlet.velocity.VctVelocityViewServlet</servlet-class>
+		<servlet-class>net.sitsol.victoria.demo.servlet.velocity.DemoVelocityViewServlet</servlet-class>
 		<init-param>
 			<param-name>org.apache.velocity.toolbox</param-name>
 			<param-value>/WEB-INF/classes/velocity-toolbox.xml</param-value>
@@ -62,5 +62,22 @@
 		</web-resource-collection>
 		<auth-constraint></auth-constraint>
 	</security-constraint>
+
+	<!-- Spring文字エンコーディング・フィルター  -->
+	<filter>
+		<filter-name>SpringCharacterEncodingFilter</filter-name>
+		<filter-class>net.sitsol.victoria.setvlet.spring.VctSpringCharacterEncodingFilter</filter-class>
+	</filter>
+
+	<!-- Spring文字エンコーディング・フィルター・マッピング  -->
+	<filter-mapping>
+		<filter-name>SpringCharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- セッションタイムアウト(分) -->
+	<session-config>
+		<session-timeout>15</session-timeout>
+	</session-config>
 
 </web-app>
