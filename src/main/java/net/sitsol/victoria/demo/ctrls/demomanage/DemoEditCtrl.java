@@ -17,7 +17,6 @@ import net.sitsol.victoria.demo.consts.DemoHttpConst;
 import net.sitsol.victoria.demo.facades.DemoMasterFacade;
 import net.sitsol.victoria.demo.forms.DemoEditFrom;
 import net.sitsol.victoria.demo.models.demo.DemoModel;
-import net.sitsol.victoria.log4j.VctLogger;
 
 /**
  * デモ用マスタ管理-編集コントローラ
@@ -26,19 +25,18 @@ import net.sitsol.victoria.log4j.VctLogger;
  */
 @Controller											// springのコントローラであることを示す
 @RequestMapping("/demomanage")						// リクエストURLとのマッピング ※APコンテキストからのディレクトリ
-@SessionAttributes(types = DemoEditFrom.class)		// セッション格納するフォーム群のクラス型
+@SessionAttributes(types = DemoEditFrom.class)		// セッション格納するフォーム群のクラス型 ※.vmにて「${先頭だけ小文字にしたクラス名}」で得られる
+//@SessionAttributes(types = { DemoSearchFrom.class, DemoEditFrom.class })		// セッション格納するフォーム群のクラス型 ※.vmにて「${先頭だけ小文字にしたクラス名}」で得られる
 public class DemoEditCtrl {
 
 	/**
 	 * デモマスタ更新
-	 * @param demoId デモID
 	 * @param form デモマスタ編集フォーム
+	 * @param demoId デモID
 	 * @return 応答結果vmパス
 	 */
 	@RequestMapping(value = "/demoupdate.do", method = RequestMethod.GET)
 	public String demoupdate(DemoEditFrom form, @RequestParam(DemoHttpConst.DEMO_ID) String demoId) {
-
-		VctLogger.getLogger().info("HelloController-demoupdate.doメソッド実行開始");
 
 		// モデル１件検索
 		DemoModel model = DemoMasterFacade.getInstance().findDemoModel(demoId);
@@ -51,14 +49,13 @@ public class DemoEditCtrl {
 
 	/**
 	 * デモマスタ更新実行
-	 * @param demoId デモID
+	 * @param sessionStatus セッションステータス
 	 * @param form デモマスタ編集フォーム
+	 * @param redirect リダイレクト属性モデル
 	 * @return 応答結果vmパス
 	 */
 	@RequestMapping(value = "/demoupdateexec.do", method = RequestMethod.POST)
 	public String demoupdateexec(SessionStatus sessionStatus, DemoEditFrom form, RedirectAttributes redirect) throws IOException {
-
-		VctLogger.getLogger().info("HelloController-demoupdateexec.doメソッド実行開始");
 
 		// フォーム→モデルへ
 		DemoModel demoModel = form.formToModel();
