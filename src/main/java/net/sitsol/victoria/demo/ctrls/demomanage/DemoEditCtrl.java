@@ -26,7 +26,6 @@ import net.sitsol.victoria.demo.models.demo.DemoModel;
 @Controller											// springのコントローラであることを示す
 @RequestMapping("/demomanage")						// リクエストURLとのマッピング ※APコンテキストからのディレクトリ
 @SessionAttributes(types = DemoEditFrom.class)		// セッション格納するフォーム群のクラス型 ※.vmにて「${先頭だけ小文字にしたクラス名}」で得られる
-//@SessionAttributes(types = { DemoSearchFrom.class, DemoEditFrom.class })		// セッション格納するフォーム群のクラス型 ※.vmにて「${先頭だけ小文字にしたクラス名}」で得られる
 public class DemoEditCtrl {
 
 	/**
