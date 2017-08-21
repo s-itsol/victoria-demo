@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>${envName}Victoria-プログラミング使用例</title>
+</head>
+<body>
+	<h1>デモマスタ編集</h1>
+
+##	処理完了メッセージありの場合
+	#if($compMessage)
+		<span style="color:red;">$compMessage</span>
+	#end
+
+	<form action="${apcontext}/demomanage/demoupdateexec.do" method="POST">
+		<table>
+			<tr>
+				<th>デモID</th>
+				<td>$demoEditFrom.getDemoId()</td>
+			</tr>
+			<tr>
+				<th>デモ名</th>
+				<td>
+					<input type="text" name="demoName" value="$demoEditFrom.getDemoName()" />
+				</td>
+			</tr>
+			<tr>
+				<th>詳細</th>
+				<td>
+					<textarea name="demoDetail" rows="4" cols="40">$demoEditFrom.getDemoDetail()</textarea>
+				</td>
+			</tr>
+		</table>
+		<br />
+
+		<input type="submit" value="確定" onclick="if (!window.confirm('更新内容を確定します。よろしいですか？')) { return false; } return;" />
+	</form>
+
+	<input type="button" value="戻る" onclick="javascript:location.href='${apcontext}/demomanage/demolist.do'; return false;" />
+</body>
+</html>

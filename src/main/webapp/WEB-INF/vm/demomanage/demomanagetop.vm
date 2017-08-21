@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>${envName}Victoria-プログラミング使用例</title>
+</head>
+<body>
+	<h1>デモマスタ管理</h1>
+
+	<table>
+		<tr>
+			<td>
+				<a href="${apcontext}/demomanage/demoregist.do">デモマスタ登録</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="${apcontext}/demomanage/demosearch.do">デモマスタ検索</a>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

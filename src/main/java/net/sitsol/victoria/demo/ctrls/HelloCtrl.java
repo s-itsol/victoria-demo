@@ -1,7 +1,7 @@
 /**
  *
  */
-package net.sitsol.victoria.demo.controllers;
+package net.sitsol.victoria.demo.ctrls;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +16,7 @@ import net.sitsol.victoria.log4j.VctLogger;
  */
 @Controller
 @RequestMapping("/hello")
-public class HelloController {
+public class HelloCtrl {
 
 	@RequestMapping(value = "/world.do", method = RequestMethod.GET)
 	public String world(Model model) {
