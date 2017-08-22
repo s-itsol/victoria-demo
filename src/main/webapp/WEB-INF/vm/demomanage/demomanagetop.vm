@@ -8,7 +8,7 @@
 	<table>
 		<tr>
 			<td>
-				<a href="${apcontext}/demomanage/demoregist.do">デモマスタ登録</a>
+				<a href="${apcontext}/demomanage/demoregist.do">デモマスタ登録 ※TODO:まだ未実装</a>
 			</td>
 		</tr>
 		<tr>
