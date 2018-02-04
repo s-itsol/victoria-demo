@@ -21,9 +21,10 @@ import net.sitsol.victoria.demo.forms.DemoSearchFrom;
  *
  * @author shibano
  */
-@Controller												// springのコントローラであることを示す
-@RequestMapping("/demomanage")							// リクエストURLとのマッピング ※APコンテキストからのディレクトリ
-@SessionAttributes(types = DemoSearchFrom.class)		// セッション格納するフォーム群のクラス型 ※.vmにて「${先頭だけ小文字にしたクラス名}」で得られる
+//@Controller												// springのコントローラであることを示す
+//@RequestMapping("/demomanage")							// リクエストURLとのマッピング ※APコンテキストからのディレクトリ
+//@SessionAttributes(types = DemoSearchFrom.class)		// セッション格納するフォーム群のクラス型 ※.vmにて「${先頭だけ小文字にしたクラス名}」で得られる
+//※1クラス版の動作を試すため、こちらはコメントアウト
 public class DemoSerachCtrl {
 
 	/**

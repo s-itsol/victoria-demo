@@ -11,7 +11,7 @@ import net.sitsol.victoria.setvlet.VctHttpSessionAttributeListener;
 /**
  * デモ用-サーブレット・HTTPセッション属性・リスナー
  *
- * @author rei_shibano
+ * @author shibano
  */
 public class DemoHttpSessionAttributeListener extends VctHttpSessionAttributeListener {
 

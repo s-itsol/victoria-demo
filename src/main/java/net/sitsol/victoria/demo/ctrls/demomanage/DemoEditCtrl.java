@@ -3,8 +3,6 @@
  */
 package net.sitsol.victoria.demo.ctrls.demomanage;
 
-import java.io.IOException;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,9 +21,10 @@ import net.sitsol.victoria.demo.models.demo.DemoModel;
  *
  * @author shibano
  */
-@Controller											// springのコントローラであることを示す
-@RequestMapping("/demomanage")						// リクエストURLとのマッピング ※APコンテキストからのディレクトリ
-@SessionAttributes(types = DemoEditFrom.class)		// セッション格納するフォーム群のクラス型 ※.vmにて「${先頭だけ小文字にしたクラス名}」で得られる
+//@Controller											// springのコントローラであることを示す
+//@RequestMapping("/demomanage")						// リクエストURLとのマッピング ※APコンテキストからのディレクトリ
+//@SessionAttributes(types = DemoEditFrom.class)		// セッション格納するフォーム群のクラス型 ※.vmにて「${先頭だけ小文字にしたクラス名}」で得られる
+// ※1クラス版の動作を試すため、こちらはコメントアウト
 public class DemoEditCtrl {
 
 	/**
@@ -54,7 +53,7 @@ public class DemoEditCtrl {
 	 * @return 応答結果vmパス
 	 */
 	@RequestMapping(value = "/demoupdateexec.do", method = RequestMethod.POST)
-	public String demoupdateexec(SessionStatus sessionStatus, DemoEditFrom form, RedirectAttributes redirect) throws IOException {
+	public String demoupdateexec(SessionStatus sessionStatus, DemoEditFrom form, RedirectAttributes redirect) {
 
 		// フォーム→モデルへ
 		DemoModel demoModel = form.formToModel();
