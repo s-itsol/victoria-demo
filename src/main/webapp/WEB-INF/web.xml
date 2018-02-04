@@ -13,7 +13,12 @@
 
 	<!-- HTTPセッション・リスナー -->
 	<listener>
-		<listener-class>net.sitsol.victoria.setvlet.VctHttpSessionListener</listener-class>
+		<listener-class>net.sitsol.victoria.demo.servlet.DemoHttpSessionListener</listener-class>
+	</listener>
+
+	<!-- HTTPセッション属性・リスナー -->
+	<listener>
+		<listener-class>net.sitsol.victoria.demo.servlet.DemoHttpSessionAttributeListener</listener-class>
 	</listener>
 
 	<!-- Spring-Dispatcherサーブレット -->
