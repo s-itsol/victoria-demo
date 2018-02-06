@@ -4,7 +4,7 @@
 package net.sitsol.victoria.demo.ctrls;
 
 import net.sitsol.victoria.log4j.VctLogger;
-import net.sitsol.victoria.messages.VctMessage;
+import net.sitsol.victoria.messages.VctMessageSauce;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +24,7 @@ public class HelloCtrl {
 
 		VctLogger.getLogger().info("HelloController-world.doメソッド実行開始");
 
-		String msg = VctMessage.getMessage("errors.orver", "スイカ", "2つ");
+		String msg = VctMessageSauce.getMessage("errors.orver", "スイカ", "2つ");
 		VctLogger.getLogger().info(" -> メッセージ取得テスト：[" + msg + "]");
 		
 		// vmのファイルパス(拡張子なし)を返す
