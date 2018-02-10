@@ -23,8 +23,10 @@ public class DemoSearchFrom implements Serializable {
 
 	public DemoSearchFrom() {
 		super();
-
-		VctLogger.getLogger().info("★DemoSeatchFromコンストラクタ");
+		
+		if ( VctLogger.getLogger().isDebugEnabled() ) {
+			VctLogger.getLogger().debug("★DemoSeatchFromコンストラクタ");
+		}
 	}
 
 	public String getDemoId() {

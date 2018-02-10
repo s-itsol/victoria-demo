@@ -25,6 +25,11 @@ public class DemoSpringDispatcherServlet extends VctSpringDispatcherServlet {
 	 */
 	@Override
 	protected void doService(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		if ( VctLogger.getLogger().isDebugEnabled() ) {
+			VctLogger.getLogger().debug(" -> サービス実行");
+		}
+		
 		// 基底クラスのメソッド実行
 		super.doService(request, response);
 	}
@@ -36,9 +41,11 @@ public class DemoSpringDispatcherServlet extends VctSpringDispatcherServlet {
 	 */
 	@Override
 	protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-		VctLogger.getLogger().info("★doDispatch");
-
+		
+		if ( VctLogger.getLogger().isDebugEnabled() ) {
+			VctLogger.getLogger().debug(" -> ディスパッチ実行");
+		}
+		
 		// 基底クラスのメソッド実行
 		super.doDispatch(request, response);
 	}

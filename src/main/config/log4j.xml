@@ -57,14 +57,11 @@
 
 	<!-- パッケージ別の出力レベル指定 -->
 	<category name="net.sitsol.victoria">
-		<priority value="info" />
+		<priority value="debug" />
 		<appender-ref ref="console" />
 		<appender-ref ref="file" />
 		<appender-ref ref="warnfile" />
 		<appender-ref ref="errorfile" />
-<!--
-		<appender-ref ref="mail" />
--->
 	</category>
 	<category name="org.springframework">
 		<priority value="info" />

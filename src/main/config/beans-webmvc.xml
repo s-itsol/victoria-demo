@@ -32,4 +32,12 @@
 		<property name="suffix" value=".vm" />
 	</bean>
 
+	<!-- インターセプタ -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="net.sitsol.victoria.setvlet.spring.VctHandlerInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
 </beans>

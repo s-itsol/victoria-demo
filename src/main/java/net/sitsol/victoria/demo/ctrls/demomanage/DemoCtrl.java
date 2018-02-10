@@ -23,6 +23,7 @@ import net.sitsol.victoria.demo.facades.DemoMasterFacade;
 import net.sitsol.victoria.demo.forms.DemoEditFrom;
 import net.sitsol.victoria.demo.forms.DemoSearchFrom;
 import net.sitsol.victoria.demo.models.demo.DemoModel;
+import net.sitsol.victoria.setvlet.spring.annotation.PreHandleNoAuth;
 
 /**
  * デモ用マスタ管理-コントローラ
@@ -45,6 +46,7 @@ public class DemoCtrl {
 	 * @return 応答結果vmパス
 	 */
 	@RequestMapping(value = "/demomanagetop.do", method = RequestMethod.GET)
+	@PreHandleNoAuth
 	public String demomanagetop(SessionStatus sessionStatus, DemoSearchFrom searchForm, DemoEditFrom editForm) {
 
 		sessionStatus.setComplete();			// @SessionAttributesのフォーム群をセッションからクリア
@@ -58,6 +60,7 @@ public class DemoCtrl {
 	 * @return 応答結果vmパス
 	 */
 	@RequestMapping(value = "/demosearch.do", method = RequestMethod.GET)
+	@PreHandleNoAuth
 	public String demosearch(DemoSearchFrom form) {
 
 		return "demosearch";
@@ -70,6 +73,7 @@ public class DemoCtrl {
 	 * @return 応答結果vmパス
 	 */
 	@RequestMapping(value = "/demolist.do", method = { RequestMethod.GET, RequestMethod.POST })
+	@PreHandleNoAuth
 	public String demolist(DemoSearchFrom form, Model model) {
 
 		// フォーム入力値→検索条件ビーン生成
@@ -93,6 +97,7 @@ public class DemoCtrl {
 	 * @return 応答結果vmパス
 	 */
 	@RequestMapping(value = "/demoupdate.do", method = RequestMethod.GET)
+	@PreHandleNoAuth
 	public String demoupdate(DemoEditFrom form, @RequestParam(DemoHttpConst.DEMO_ID) String demoId) {
 
 		// モデル１件検索
@@ -112,6 +117,7 @@ public class DemoCtrl {
 	 * @return 応答結果vmパス
 	 */
 	@RequestMapping(value = "/demoupdateexec.do", method = RequestMethod.POST)
+	@PreHandleNoAuth
 	public String demoupdateexec(HttpSession session, DemoEditFrom form, RedirectAttributes redirect) {
 
 		// フォーム→モデルへ

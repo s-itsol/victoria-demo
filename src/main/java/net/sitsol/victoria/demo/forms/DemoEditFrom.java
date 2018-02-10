@@ -20,8 +20,10 @@ public class DemoEditFrom implements Serializable {
 
 	public DemoEditFrom() {
 		super();
-
-		VctLogger.getLogger().info("★DemoEditFromコンストラクタ");
+		
+		if ( VctLogger.getLogger().isDebugEnabled() ) {
+			VctLogger.getLogger().debug("★DemoEditFromコンストラクタ");
+		}
 	}
 
 	/**
@@ -29,9 +31,9 @@ public class DemoEditFrom implements Serializable {
 	 * @param model デモモデル
 	 */
 	public void modelToFrom(DemoModel demoModel) {
-
+		
 		// ※編集が必要なものがあれば、ここで行う
-
+		
 		this.setModel(demoModel);
 	}
 
@@ -40,11 +42,11 @@ public class DemoEditFrom implements Serializable {
 	 * @return デモモデル
 	 */
 	public DemoModel formToModel() {
-
+		
 		DemoModel demoModel = this.getModel();
-
+		
 		// ※編集が必要なものがあれば、ここで行う
-
+		
 		return demoModel;
 	}
 

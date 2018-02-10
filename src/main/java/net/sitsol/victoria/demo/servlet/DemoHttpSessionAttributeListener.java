@@ -20,10 +20,11 @@ public class DemoHttpSessionAttributeListener extends VctHttpSessionAttributeLis
 	 */
 	@Override
 	public void attributeAdded(HttpSessionBindingEvent event) {
-
-		// ※デモ用なので、動作がわかるようログ出力しておく
-		VctLogger.getLogger().info(" ---> セッション属性追加 - 属性名：[" + event.getName() + "]");
-
+		
+		if ( VctLogger.getLogger().isDebugEnabled() ) {
+			VctLogger.getLogger().debug(" ---> ★セッション属性追加 - 属性名：[" + event.getName() + "]");
+		}
+		
 		super.attributeAdded(event);
 	}
 
@@ -32,10 +33,11 @@ public class DemoHttpSessionAttributeListener extends VctHttpSessionAttributeLis
 	 */
 	@Override
 	public void attributeRemoved(HttpSessionBindingEvent event) {
-
-		// ※デモ用なので、動作がわかるようログ出力しておく
-		VctLogger.getLogger().info(" ---> セッション属性破棄 - 属性名：[" + event.getName() + "]");
-
+		
+		if ( VctLogger.getLogger().isDebugEnabled() ) {
+			VctLogger.getLogger().debug(" ---> ★セッション属性破棄 - 属性名：[" + event.getName() + "]");
+		}
+		
 		super.attributeRemoved(event);
 	}
 
@@ -44,10 +46,11 @@ public class DemoHttpSessionAttributeListener extends VctHttpSessionAttributeLis
 	 */
 	@Override
 	public void attributeReplaced(HttpSessionBindingEvent event) {
-
-		// ※デモ用なので、動作がわかるようログ出力しておく
-		VctLogger.getLogger().info(" ---> セッション属性置換 - 属性名：[" + event.getName() + "]");
-
+		
+		if ( VctLogger.getLogger().isDebugEnabled() ) {
+			VctLogger.getLogger().debug(" ---> ★セッション属性置換 - 属性名：[" + event.getName() + "]");
+		}
+		
 		super.attributeReplaced(event);
 	}
 
