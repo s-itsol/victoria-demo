@@ -16,7 +16,7 @@
 	<!-- DIコンテナに登録するControllerクラスの設定
 		※指定パッケージ配下の「@Controller」アノテーションが設定されたクラスをコントローラクラスとして登録する
 	-->
-	<context:component-scan base-package="net.sitsol.victoria.demo.ctrls" />
+	<context:component-scan base-package="net.sitsol.victoria.demo.controllers" />
 
 	<!-- Spring-MVCのアノテーション使用設定 -->
 	<mvc:annotation-driven />
