@@ -22,11 +22,11 @@ public class HelloController extends VctController {
 
 	@RequestMapping(value = DemoUrlPathConst.WORLD_DO, method = RequestMethod.GET)
 	public String world(Model model) {
-
+		
 		VctLogger.getLogger().info("HelloController-world.doメソッド実行開始");
-
-		// vmのファイルパス(拡張子なし)を返す
-		return "helloworld";
+		
+		// vmのファイルパスへフォワード
+		return "helloworld.vm";
 	}
 
 }

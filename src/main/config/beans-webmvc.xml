@@ -29,7 +29,7 @@
 	-->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="" />
-		<property name="suffix" value=".vm" />
+		<property name="suffix" value="" /><!-- ※プログラム内で「.vm」「.do」などのフォワード先ページ拡張子を明示させるため、あえて「suffix」のプロパティは空文字にしている -->
 	</bean>
 
 	<!-- コントローラ・インターセプタ -->

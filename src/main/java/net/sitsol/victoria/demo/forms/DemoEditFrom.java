@@ -3,16 +3,16 @@
  */
 package net.sitsol.victoria.demo.forms;
 
-import java.io.Serializable;
-
 import net.sitsol.victoria.demo.models.demo.DemoModel;
+import net.sitsol.victoria.forms.VctFrom;
 import net.sitsol.victoria.log4j.VctLogger;
 
 /**
- *
+ * デモマスタ編集フォーム
+ * 
  * @author shibano
  */
-public class DemoEditFrom implements Serializable {
+public class DemoEditFrom extends VctFrom {
 
 	private static final long serialVersionUID = -526320656401787846L;
 

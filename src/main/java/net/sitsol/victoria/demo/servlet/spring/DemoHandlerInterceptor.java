@@ -3,13 +3,19 @@
  */
 package net.sitsol.victoria.demo.servlet.spring;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.sitsol.victoria.log4j.VctLogger;
 import net.sitsol.victoria.setvlet.spring.VctHandlerInterceptor;
+import net.sitsol.victoria.utils.statics.VctStringUtils;
 
 /**
  * デモ用-ハンドラ・インターセプタ
@@ -43,7 +49,35 @@ public class DemoHandlerInterceptor extends VctHandlerInterceptor {
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 		
 		if ( VctLogger.getLogger().isDebugEnabled() ) {
-			VctLogger.getLogger().debug(" -> コントローラ処理後イベント通知 - ハンドラクラス名：[" + handler.getClass().getSimpleName() + "], モデル＆ビュー情報(ビュー名)：[" + ( modelAndView == null ? null : modelAndView.getViewName() ) + "]");
+			
+			StringBuilder message = new StringBuilder();
+			message.append(" -> コントローラ処理後イベント通知");
+			message.append(" - ハンドラクラス名：[").append(handler.getClass().getSimpleName()).append("]");
+			
+			if ( modelAndView != null ) {
+				
+				message.append(", ビュー名：[").append(modelAndView.getViewName()).append("]");
+				
+				ModelMap modelMap = modelAndView.getModelMap();
+				
+				if ( modelMap != null ) {
+					
+					List<String> modelKeyList = new ArrayList<>();
+					
+					for ( String modelKey : modelMap.keySet() ) {
+						// springバリデーション系モデルは使わないので、ログ出力からは除外
+						if ( StringUtils.startsWith(modelKey, "org.springframework.validation.BindingResult") ) {
+							continue;
+						}
+						
+						modelKeyList.add(modelKey);
+					}
+					
+					message.append(", モデル名CSV：[").append(VctStringUtils.createCsvString(modelKeyList.toArray())).append("]");
+				}
+			}
+			
+			VctLogger.getLogger().debug(message.toString());
 		}
 		
 		// 基底クラスのメソッド実行
@@ -59,12 +93,14 @@ public class DemoHandlerInterceptor extends VctHandlerInterceptor {
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
 		
 		if ( VctLogger.getLogger().isDebugEnabled() ) {
-			VctLogger.getLogger().debug(" -> リクエスト完了イベント通知 - ハンドラクラス名：[" + handler.getClass().getSimpleName() + "], 例外クラス名：[" + ( ex == null ? null : ex.getClass().getSimpleName() ) + "]");
+			VctLogger.getLogger().debug(" -> リクエスト完了イベント通知"
+											+ " - ハンドラクラス名：[" + handler.getClass().getSimpleName() + "]"
+											+ ", 例外クラス名：[" + ( ex == null ? null : ex.getClass().getSimpleName() ) + "]"
+										);
 		}
 		
 		// 基底クラスのメソッド実行
 		super.afterCompletion(request, response, handler, ex);
 	}
-
 
 }
