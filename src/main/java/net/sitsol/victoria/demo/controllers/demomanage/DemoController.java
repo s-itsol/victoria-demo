@@ -5,7 +5,17 @@ package net.sitsol.victoria.demo.controllers.demomanage;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.sitsol.victoria.controllers.VctController;
 import net.sitsol.victoria.demo.beans.cond.DemoSearchCond;
@@ -17,16 +27,6 @@ import net.sitsol.victoria.demo.forms.DemoEditFrom;
 import net.sitsol.victoria.demo.forms.DemoSearchFrom;
 import net.sitsol.victoria.demo.models.demo.DemoModel;
 import net.sitsol.victoria.setvlet.spring.annotation.PreHandleNoAuth;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * デモ用マスタ管理-コントローラ
@@ -117,14 +117,14 @@ public class DemoController extends VctController {
 
 	/**
 	 * デモマスタ更新実行
-	 * @param session HTTPセッション
+	 * @param request HTTPサーブレットリクエスト
 	 * @param form デモマスタ編集フォーム
 	 * @param redirectAttrs リダイレクト属性モデル
 	 * @return モデル＆ビュー情報
 	 */
 	@RequestMapping(value = DemoUrlPathConst.DEMOUPDATEEXEC_DO, method = RequestMethod.POST)
 	@PreHandleNoAuth
-	public ModelAndView demoupdateexec(HttpSession session, DemoEditFrom form, RedirectAttributes redirectAttrs) {
+	public ModelAndView demoupdateexec(HttpServletRequest request, DemoEditFrom form, RedirectAttributes redirectAttrs) {
 		
 		// フォーム→モデルへ
 		DemoModel demoModel = form.formToModel();
@@ -132,13 +132,13 @@ public class DemoController extends VctController {
 		// １件更新
 		DemoMasterFacade.getInstance().updateDemoModel(demoModel);
 		
-		session.removeAttribute(form.getDefaultName());		// 編集フォームをセッションからクリア
+		// 編集フォームをセッションからクリア
+		this.removeSessionFrom(request, form.getDefaultName());
 		
 		redirectAttrs.addFlashAttribute(DemoHttpConst.COMP_MESSAGE, "更新が完了しました");		// リダイレクト先画面でも1度だけ有効な値を設定
 		
 		// 編集画面URL生成
-		String redirectUrl = DemoUrlPathConst.Root.DemoManage.DIR
-								+ DemoUrlPathConst.DEMOUPDATE_DO
+		String redirectUrl = DemoUrlPathConst.DEMOUPDATE_DO
 								+ "?" + DemoHttpConst.DEMO_ID + "=" + demoModel.getDemoId()
 		;
 		

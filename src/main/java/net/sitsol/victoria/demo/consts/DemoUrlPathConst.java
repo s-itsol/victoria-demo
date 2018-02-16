@@ -10,25 +10,6 @@ package net.sitsol.victoria.demo.consts;
  */
 public class DemoUrlPathConst {
 
-	// -------------------------------------------------------------------------
-	//  ディレクトリ階層構造
-	// -------------------------------------------------------------------------
-
-	/** APコンテキストルート */
-	public class Root {
-		public static final String DIR = "/";
-		
-		/** Hello */
-		public class Hello {
-			public static final String DIR = Root.DIR + "hello/";
-		}
-		
-		/** デモマスタ管理 */
-		public class DemoManage {
-			public static final String DIR = Root.DIR + "demomanage/";
-		}
-	}
-
 	/** コンストラクタ */
 	protected DemoUrlPathConst() {}
 
@@ -60,5 +41,25 @@ public class DemoUrlPathConst {
 	public static final String DEMOSEARCH_VM		= "demosearch.vm";			// デモマスタ検索
 	public static final String DEMOLIST_VM			= "demolist.vm";			// デモマスタ一覧
 	public static final String DEMOEDIT_VM			= "demoedit.vm";			// デモマスタ編集
+
+
+	// -------------------------------------------------------------------------
+	//  ディレクトリ階層構造
+	// -------------------------------------------------------------------------
+
+	/** APコンテキストルート */
+	public class Root {
+		public static final String DIR = "/";
+		
+		/** Hello */
+		public class Hello {
+			public static final String DIR = Root.DIR + "hello/";
+		}
+		
+		/** デモマスタ管理 */
+		public class DemoManage {
+			public static final String DIR = Root.DIR + "demomanage/";
+		}
+	}
 
 }
