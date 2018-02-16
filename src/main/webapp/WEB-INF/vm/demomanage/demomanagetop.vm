@@ -17,5 +17,14 @@
 			</td>
 		</tr>
 	</table>
+	<br />
+	
+	<table>
+		<tr>
+			<td>
+				<a href="${apcontext}/resources/index.html">静的ページへ戻る</a>
+			</td>
+		</tr>
+	</table>
 </body>
 </html>

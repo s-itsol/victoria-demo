@@ -26,7 +26,7 @@ import net.sitsol.victoria.demo.facades.DemoMasterFacade;
 import net.sitsol.victoria.demo.forms.DemoEditFrom;
 import net.sitsol.victoria.demo.forms.DemoSearchFrom;
 import net.sitsol.victoria.demo.models.demo.DemoModel;
-import net.sitsol.victoria.setvlet.spring.annotation.PreHandleNoAuth;
+import net.sitsol.victoria.setvlet.spring.annotation.VctNoAuth;
 
 /**
  * デモ用マスタ管理-コントローラ
@@ -51,7 +51,7 @@ public class DemoController extends VctController {
 	 * @return モデル＆ビュー情報
 	 */
 	@RequestMapping(value = DemoUrlPathConst.DEMOMANAGETOP_DO, method = RequestMethod.GET)
-	@PreHandleNoAuth
+	@VctNoAuth
 	public ModelAndView demomanagetop(SessionStatus sessionStatus) {
 		
 		// @SessionAttributesのフォーム群をセッションからクリア
@@ -66,7 +66,7 @@ public class DemoController extends VctController {
 	 * @return モデル＆ビュー情報
 	 */
 	@RequestMapping(value = DemoUrlPathConst.DEMOSEARCH_DO, method = RequestMethod.GET)
-	@PreHandleNoAuth
+	@VctNoAuth
 	public ModelAndView demosearch(DemoSearchFrom form) {
 		
 		return this.forwardForApp(DemoUrlPathConst.DEMOSEARCH_VM);
@@ -79,7 +79,7 @@ public class DemoController extends VctController {
 	 * @return モデル＆ビュー情報
 	 */
 	@RequestMapping(value = DemoUrlPathConst.DEMOLIST_DO, method = { RequestMethod.GET, RequestMethod.POST })
-	@PreHandleNoAuth
+	@VctNoAuth
 	public ModelAndView demolist(DemoSearchFrom form, Model requestAttrs) {
 		
 		// フォーム入力値→検索条件ビーン生成
@@ -103,7 +103,7 @@ public class DemoController extends VctController {
 	 * @return モデル＆ビュー情報
 	 */
 	@RequestMapping(value = DemoUrlPathConst.DEMOUPDATE_DO, method = RequestMethod.GET)
-	@PreHandleNoAuth
+	@VctNoAuth
 	public ModelAndView demoupdate(DemoEditFrom form, @RequestParam(DemoHttpConst.DEMO_ID) String demoId) {
 		
 		// モデル１件検索
@@ -123,7 +123,7 @@ public class DemoController extends VctController {
 	 * @return モデル＆ビュー情報
 	 */
 	@RequestMapping(value = DemoUrlPathConst.DEMOUPDATEEXEC_DO, method = RequestMethod.POST)
-	@PreHandleNoAuth
+	@VctNoAuth
 	public ModelAndView demoupdateexec(HttpServletRequest request, DemoEditFrom form, RedirectAttributes redirectAttrs) {
 		
 		// フォーム→モデルへ
