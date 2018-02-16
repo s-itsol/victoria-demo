@@ -117,14 +117,14 @@ public class DemoController extends VctController {
 
 	/**
 	 * デモマスタ更新実行
-	 * @param sessionStatus セッションステータス
+	 * @param session HTTPセッション
 	 * @param form デモマスタ編集フォーム
 	 * @param redirectAttrs リダイレクト属性モデル
 	 * @return モデル＆ビュー情報
 	 */
 	@RequestMapping(value = DemoUrlPathConst.DEMOUPDATEEXEC_DO, method = RequestMethod.POST)
 	@PreHandleNoAuth
-	public ModelAndView demoupdateexec(HttpSession session, DemoEditFrom form, RedirectAttributes redirectAttrs, ModelAndView modelAndView) {
+	public ModelAndView demoupdateexec(HttpSession session, DemoEditFrom form, RedirectAttributes redirectAttrs) {
 		
 		// フォーム→モデルへ
 		DemoModel demoModel = form.formToModel();
@@ -132,7 +132,7 @@ public class DemoController extends VctController {
 		// １件更新
 		DemoMasterFacade.getInstance().updateDemoModel(demoModel);
 		
-		session.removeAttribute(form.getDefaultName());		// 編集フォームをセッションからクリア ※TODO：セッション直接編集なので、ここの実装は要検討
+		session.removeAttribute(form.getDefaultName());		// 編集フォームをセッションからクリア
 		
 		redirectAttrs.addFlashAttribute(DemoHttpConst.COMP_MESSAGE, "更新が完了しました");		// リダイレクト先画面でも1度だけ有効な値を設定
 		
@@ -143,7 +143,7 @@ public class DemoController extends VctController {
 		;
 		
 		// リダイレクト
-		return this.sendRedirectForApp(redirectUrl, modelAndView);
+		return this.sendRedirectForApp(redirectUrl);
 	}
 
 }
