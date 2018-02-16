@@ -17,7 +17,7 @@ import net.sitsol.victoria.log4j.VctLogger;
  * @author shibano
  */
 @Controller
-@RequestMapping(DemoUrlPathConst.HELLO)
+@RequestMapping(DemoUrlPathConst.Root.Hello.DIR)
 public class HelloController extends VctController {
 
 	@RequestMapping(value = DemoUrlPathConst.WORLD_DO, method = RequestMethod.GET)
@@ -26,7 +26,7 @@ public class HelloController extends VctController {
 		VctLogger.getLogger().info("HelloController-world.doメソッド実行開始");
 		
 		// vmのファイルパスへフォワード
-		return "helloworld.vm";
+		return DemoUrlPathConst.HELLOWORLD_VM;
 	}
 
 }

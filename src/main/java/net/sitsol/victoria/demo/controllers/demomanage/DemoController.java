@@ -7,16 +7,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import net.sitsol.victoria.controllers.VctController;
 import net.sitsol.victoria.demo.beans.cond.DemoSearchCond;
 import net.sitsol.victoria.demo.beans.dto.DemoDto;
@@ -28,13 +18,23 @@ import net.sitsol.victoria.demo.forms.DemoSearchFrom;
 import net.sitsol.victoria.demo.models.demo.DemoModel;
 import net.sitsol.victoria.setvlet.spring.annotation.PreHandleNoAuth;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 /**
  * デモ用マスタ管理-コントローラ
  *
  * @author shibano
  */
 @Controller																		// springのコントローラであることを示す
-@RequestMapping(DemoUrlPathConst.DEMOMANAGE)									// リクエストURLとのマッピング ※APコンテキストからのディレクトリ
+@RequestMapping(DemoUrlPathConst.Root.DemoManage.DIR)									// リクエストURLとのマッピング ※APコンテキストからのディレクトリ
 @SessionAttributes(types = {													// セッション格納するフォーム群のクラス型 ※フォーム名はデフォルトを使うので「names」パラメータは未指定
 						DemoSearchFrom.class
 						, DemoEditFrom.class
@@ -57,7 +57,7 @@ public class DemoController extends VctController {
 		// @SessionAttributesのフォーム群をセッションからクリア
 		sessionStatus.setComplete();
 		
-		return this.forwardForApp("demomanagetop.vm");
+		return this.forwardForApp(DemoUrlPathConst.DEMOMANAGETOP_VM);
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class DemoController extends VctController {
 	@PreHandleNoAuth
 	public ModelAndView demosearch(DemoSearchFrom form) {
 		
-		return this.forwardForApp("demosearch.vm");
+		return this.forwardForApp(DemoUrlPathConst.DEMOSEARCH_VM);
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class DemoController extends VctController {
 		
 		requestAttrs.addAttribute(DEMO_DTO_LIST, dtoList);		// リクエストスコープでの値の設定 ※.vmにて「${第1引数の属性名}」で得られる
 		
-		return this.forwardForApp("demolist.vm");
+		return this.forwardForApp(DemoUrlPathConst.DEMOLIST_VM);
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class DemoController extends VctController {
 		// モデル→フォームへ
 		form.modelToFrom(model);
 		
-		return this.forwardForApp("demoedit.vm");
+		return this.forwardForApp(DemoUrlPathConst.DEMOEDIT_VM);
 	}
 
 	/**
@@ -137,7 +137,8 @@ public class DemoController extends VctController {
 		redirectAttrs.addFlashAttribute(DemoHttpConst.COMP_MESSAGE, "更新が完了しました");		// リダイレクト先画面でも1度だけ有効な値を設定
 		
 		// 編集画面URL生成
-		String redirectUrl = DemoUrlPathConst.DEMOMANAGE + DemoUrlPathConst.DEMOUPDATE_DO
+		String redirectUrl = DemoUrlPathConst.Root.DemoManage.DIR
+								+ DemoUrlPathConst.DEMOUPDATE_DO
 								+ "?" + DemoHttpConst.DEMO_ID + "=" + demoModel.getDemoId()
 		;
 		
