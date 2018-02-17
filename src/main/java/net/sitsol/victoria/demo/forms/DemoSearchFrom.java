@@ -16,6 +16,9 @@ import net.sitsol.victoria.log4j.VctLogger;
 public class DemoSearchFrom extends VctFrom {
 
 	private static final long serialVersionUID = -1292672257885710969L;
+	
+	/** フォーム名 */
+	public static final String NAME = "demoSearchFrom";
 
 	private String demoId = StringUtils.EMPTY;
 	private String demoName = StringUtils.EMPTY;

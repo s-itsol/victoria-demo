@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.sitsol.victoria.annotation.servlet.VctNoAuth;
+import net.sitsol.victoria.annotation.servlet.VctSuccessForward;
 import net.sitsol.victoria.controllers.VctController;
 import net.sitsol.victoria.demo.consts.DemoUrlPathConst;
-import net.sitsol.victoria.setvlet.spring.annotation.VctNoAuth;
 
 /**
  * デモサイト共通-コントローラ 基底クラス
@@ -26,10 +27,11 @@ public abstract class BsDemoController extends VctController {
 	 * @return モデル＆ビュー情報
 	 */
 	@RequestMapping(value = DemoUrlPathConst.SYSTEMERROR_DO, method = RequestMethod.GET)
+	@VctSuccessForward(url = DemoUrlPathConst.Root.Errors.SYSTEMERROR_VM)
 	@VctNoAuth
 	public ModelAndView systemerror() {
 		// ビューへフォワードするだけ
-		return this.forwardForApp(DemoUrlPathConst.Root.Errors.SYSTEMERROR_VM);
+		return this.succsessForward();
 	}
 
 	/**
@@ -37,10 +39,11 @@ public abstract class BsDemoController extends VctController {
 	 * @return モデル＆ビュー情報
 	 */
 	@RequestMapping(value = DemoUrlPathConst.SESSIONTIMEOUT_DO, method = RequestMethod.GET)
+	@VctSuccessForward(url = DemoUrlPathConst.Root.Errors.SESSIONTIMEOUT_VM)
 	@VctNoAuth
 	public ModelAndView sessiontimeout() {
 		// ビューへフォワードするだけ
-		return this.forwardForApp(DemoUrlPathConst.Root.Errors.SESSIONTIMEOUT_VM);
+		return this.succsessForward();
 	}
 
 }

@@ -17,6 +17,10 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import net.sitsol.victoria.annotation.servlet.VctFromMapping;
+import net.sitsol.victoria.annotation.servlet.VctInputForward;
+import net.sitsol.victoria.annotation.servlet.VctNoAuth;
+import net.sitsol.victoria.annotation.servlet.VctSuccessForward;
 import net.sitsol.victoria.demo.beans.cond.DemoSearchCond;
 import net.sitsol.victoria.demo.beans.dto.DemoDto;
 import net.sitsol.victoria.demo.consts.DemoHttpConst;
@@ -26,7 +30,6 @@ import net.sitsol.victoria.demo.facades.DemoMasterFacade;
 import net.sitsol.victoria.demo.forms.DemoEditFrom;
 import net.sitsol.victoria.demo.forms.DemoSearchFrom;
 import net.sitsol.victoria.demo.models.demo.DemoModel;
-import net.sitsol.victoria.setvlet.spring.annotation.VctNoAuth;
 
 /**
  * デモ用マスタ管理-コントローラ
@@ -35,11 +38,15 @@ import net.sitsol.victoria.setvlet.spring.annotation.VctNoAuth;
  */
 @Controller																		// springのコントローラであることを示す
 @RequestMapping(DemoUrlPathConst.Root.DemoManage.DIR)							// リクエストURLとのマッピング ※APコンテキストからのディレクトリ
-@SessionAttributes(types = {													// セッション格納するフォーム群のクラス型 ※フォーム名はデフォルトを使うので「names」パラメータは未指定
+@SessionAttributes(names = {													// セッション格納するフォーム群の属性名
+						DemoSearchFrom.NAME
+						, DemoEditFrom.NAME
+					}
+					, types = {													// セッション格納するフォーム群のクラス型
 						DemoSearchFrom.class
 						, DemoEditFrom.class
 					}
-				)																//  ※.vmにて「${フォーム名}」で得られる
+				)
 public class DemoController extends BsDemoController {
 
 	// ページ内パラメータ名 ※requestの属性名、GET・POSTパラメータ名
@@ -47,17 +54,20 @@ public class DemoController extends BsDemoController {
 
 	/**
 	 * デモ用マスタ管理トップ
+	 * @param form デモマスタ検索フォーム
 	 * @param sessionStatus セッションステータス
 	 * @return モデル＆ビュー情報
 	 */
 	@RequestMapping(value = DemoUrlPathConst.DEMOMANAGETOP_DO, method = RequestMethod.GET)
+	@VctSuccessForward(url = DemoUrlPathConst.DEMOMANAGETOP_VM)
+	@VctFromMapping(name = DemoSearchFrom.NAME)
 	@VctNoAuth
-	public ModelAndView demomanagetop(SessionStatus sessionStatus) {
+	public ModelAndView demomanagetop(DemoSearchFrom form, SessionStatus sessionStatus) {
 		
 		// @SessionAttributesのフォーム群をセッションからクリア
 		sessionStatus.setComplete();
 		
-		return this.forwardForApp(DemoUrlPathConst.DEMOMANAGETOP_VM);
+		return this.succsessForward();
 	}
 
 	/**
@@ -66,10 +76,12 @@ public class DemoController extends BsDemoController {
 	 * @return モデル＆ビュー情報
 	 */
 	@RequestMapping(value = DemoUrlPathConst.DEMOSEARCH_DO, method = RequestMethod.GET)
+	@VctSuccessForward(url = DemoUrlPathConst.DEMOSEARCH_VM)
+	@VctFromMapping(name = DemoSearchFrom.NAME)
 	@VctNoAuth
 	public ModelAndView demosearch(DemoSearchFrom form) {
 		
-		return this.forwardForApp(DemoUrlPathConst.DEMOSEARCH_VM);
+		return this.succsessForward();
 	}
 
 	/**
@@ -79,6 +91,8 @@ public class DemoController extends BsDemoController {
 	 * @return モデル＆ビュー情報
 	 */
 	@RequestMapping(value = DemoUrlPathConst.DEMOLIST_DO, method = { RequestMethod.GET, RequestMethod.POST })
+	@VctSuccessForward(url = DemoUrlPathConst.DEMOLIST_VM)
+	@VctFromMapping(name = DemoSearchFrom.NAME)
 	@VctNoAuth
 	public ModelAndView demolist(DemoSearchFrom form, Model requestAttrs) {
 		
@@ -93,7 +107,7 @@ public class DemoController extends BsDemoController {
 		
 		requestAttrs.addAttribute(DEMO_DTO_LIST, dtoList);		// リクエストスコープでの値の設定 ※.vmにて「${第1引数の属性名}」で得られる
 		
-		return this.forwardForApp(DemoUrlPathConst.DEMOLIST_VM);
+		return this.succsessForward();
 	}
 
 	/**
@@ -103,6 +117,8 @@ public class DemoController extends BsDemoController {
 	 * @return モデル＆ビュー情報
 	 */
 	@RequestMapping(value = DemoUrlPathConst.DEMOUPDATE_DO, method = RequestMethod.GET)
+	@VctSuccessForward(url = DemoUrlPathConst.DEMOEDIT_VM)
+	@VctFromMapping(name = DemoEditFrom.NAME)
 	@VctNoAuth
 	public ModelAndView demoupdate(DemoEditFrom form, @RequestParam(DemoHttpConst.DEMO_ID) String demoId) {
 		
@@ -112,7 +128,7 @@ public class DemoController extends BsDemoController {
 		// モデル→フォームへ
 		form.modelToFrom(model);
 		
-		return this.forwardForApp(DemoUrlPathConst.DEMOEDIT_VM);
+		return this.succsessForward();
 	}
 
 	/**
@@ -123,6 +139,8 @@ public class DemoController extends BsDemoController {
 	 * @return モデル＆ビュー情報
 	 */
 	@RequestMapping(value = DemoUrlPathConst.DEMOUPDATEEXEC_DO, method = RequestMethod.POST)
+	@VctInputForward(url = DemoUrlPathConst.DEMOEDIT_VM)
+	@VctFromMapping(name = DemoEditFrom.NAME)
 	@VctNoAuth
 	public ModelAndView demoupdateexec(HttpServletRequest request, DemoEditFrom form, RedirectAttributes redirectAttrs) {
 		
@@ -133,7 +151,7 @@ public class DemoController extends BsDemoController {
 		DemoMasterFacade.getInstance().updateDemoModel(demoModel);
 		
 		// 編集フォームをセッションからクリア
-		this.removeSessionFrom(request, form.getDefaultName());
+		this.removeSessionFrom(request, DemoEditFrom.NAME);
 		
 		redirectAttrs.addFlashAttribute(DemoHttpConst.COMP_MESSAGE, "更新が完了しました");		// リダイレクト先画面でも1度だけ有効な値を設定
 		

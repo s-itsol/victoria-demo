@@ -16,6 +16,9 @@ public class DemoEditFrom extends VctFrom {
 
 	private static final long serialVersionUID = -526320656401787846L;
 
+	/** フォーム名 */
+	public static final String NAME = "demoEditFrom";
+
 	private DemoModel model = new DemoModel();
 
 	public DemoEditFrom() {

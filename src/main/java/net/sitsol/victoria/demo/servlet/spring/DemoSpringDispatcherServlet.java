@@ -3,8 +3,6 @@
  */
 package net.sitsol.victoria.demo.servlet.spring;
 
-import java.lang.reflect.Method;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -57,25 +55,23 @@ public class DemoSpringDispatcherServlet extends VctSpringDispatcherServlet {
 	 * 認証判定
 	 * @param request HTTPサーブレットリクエスト
 	 * @param response HTTPサーブレットレスポンス
-	 * @param handlerMethod ハンドラメソッド
 	 * @return 判定結果 ※true：認証OK ／ false：認証NG
 	 */
 	@Override
-	protected boolean isAuth(HttpServletRequest request, HttpServletResponse response, Method requestMappingMethod) throws Exception {
+	protected boolean isAuth(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 
-		return super.isAuth(request, response, requestMappingMethod);
+		return super.isAuth(request, response);
 	}
 
 	/**
 	 * セッションタイムアウト実行
 	 * @param request HTTPサーブレットリクエスト
 	 * @param response HTTPサーブレットレスポンス
-	 * @param requestMappingMethod リクエストマッピングメソッド
 	 */
 	@Override
-	protected void doSessionTimeout(HttpServletRequest request, HttpServletResponse response, Method requestMappingMethod) throws Exception {
+	protected void doSessionTimeout(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 
-		super.doSessionTimeout(request, response, requestMappingMethod);
+		super.doSessionTimeout(request, response);
 	}
 
 	/**
