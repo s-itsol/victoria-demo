@@ -1,0 +1,37 @@
+################################################################################
+##	共通ヘッダタグ
+##
+##	＜request・session設定期待値＞
+##	$context			：「String」型 ※静的コンテンツルートURLパス(末尾「/」なし)
+##	$envName			：「String」型 ※環境名(本番は空文字)
+##
+################################################################################
+<head>
+	<link rel="shortcut icon" href="${context}/images/favicon.ico" />
+
+	<meta http-equiv="Content-Language" content="ja" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="ROBOTS" content="ALL" />
+
+##	HTMLページ自体のWEBキャッシュを抑止するメタタグ
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+
+##	ページタイトル
+	<title>${envName}Victoria-プログラミング使用例</title>
+
+##	javascript無効時に表示する警告メッセージ
+	<noscript>
+		<div style='margin:2em;background-color:yellow;font-size:lager;'><br />
+			<center>
+				<b>お使いのブラウザは JavaScript が無効です。</b><br />
+				<b>設定を変更して再度表示してください</b><br />
+				<br />
+			</center>
+		</div>
+	</noscript>
+
+</head>

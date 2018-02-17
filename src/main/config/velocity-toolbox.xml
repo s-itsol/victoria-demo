@@ -59,7 +59,7 @@
 		<value>/victoria-demo/resources</value>
 	</data>
 	<data type="string">
-		<key>apcontext</key>
+		<key>apContext</key>
 		<value>/victoria-demo</value>
 	</data>
 

@@ -1,29 +1,14 @@
 ################################################################################
-##	デモマスタ管理トップページ
+##	システムエラーページ
 ##
 ##	＜request・session設定期待値＞
-##	$apContext			：「String」型 ※APコンテンツルートURLパス(末尾「/」なし)
 ##	$context			：「String」型 ※静的コンテンツルートURLパス(末尾「/」なし)
 ##
 ################################################################################
 ## 共通HTMLヘッダ
 #parse("/common/htmlheader.vm")
 
-<h1>デモマスタ管理</h1>
-
-<table>
-	<tr>
-		<td>
-			<a href="${apContext}/demomanage/demoregist.do">デモマスタ登録 ※TODO:まだ未実装</a>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<a href="${apContext}/demomanage/demosearch.do">デモマスタ検索</a>
-		</td>
-	</tr>
-</table>
-<br />
+<h1>システムエラー</h1>
 
 <table>
 	<tr>

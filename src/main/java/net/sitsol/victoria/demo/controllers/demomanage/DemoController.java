@@ -17,11 +17,11 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import net.sitsol.victoria.controllers.VctController;
 import net.sitsol.victoria.demo.beans.cond.DemoSearchCond;
 import net.sitsol.victoria.demo.beans.dto.DemoDto;
 import net.sitsol.victoria.demo.consts.DemoHttpConst;
 import net.sitsol.victoria.demo.consts.DemoUrlPathConst;
+import net.sitsol.victoria.demo.controllers.BsDemoController;
 import net.sitsol.victoria.demo.facades.DemoMasterFacade;
 import net.sitsol.victoria.demo.forms.DemoEditFrom;
 import net.sitsol.victoria.demo.forms.DemoSearchFrom;
@@ -34,13 +34,13 @@ import net.sitsol.victoria.setvlet.spring.annotation.VctNoAuth;
  * @author shibano
  */
 @Controller																		// springのコントローラであることを示す
-@RequestMapping(DemoUrlPathConst.Root.DemoManage.DIR)									// リクエストURLとのマッピング ※APコンテキストからのディレクトリ
+@RequestMapping(DemoUrlPathConst.Root.DemoManage.DIR)							// リクエストURLとのマッピング ※APコンテキストからのディレクトリ
 @SessionAttributes(types = {													// セッション格納するフォーム群のクラス型 ※フォーム名はデフォルトを使うので「names」パラメータは未指定
 						DemoSearchFrom.class
 						, DemoEditFrom.class
 					}
 				)																//  ※.vmにて「${フォーム名}」で得られる
-public class DemoController extends VctController {
+public class DemoController extends BsDemoController {
 
 	// ページ内パラメータ名 ※requestの属性名、GET・POSTパラメータ名
 	public static final String DEMO_DTO_LIST				= "demoDtoList";		// デモDTOリスト

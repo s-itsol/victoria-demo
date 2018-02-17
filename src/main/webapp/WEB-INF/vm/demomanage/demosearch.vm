@@ -1,30 +1,37 @@
-<html>
-<head>
-	<title>${envName}Victoria-プログラミング使用例</title>
-</head>
-<body>
-	<h1>デモマスタ検索</h1>
+################################################################################
+##	デモマスタ検索ページ
+##
+##	＜request・session設定期待値＞
+##	$apContext			：「String」型 ※APコンテンツルートURLパス(末尾「/」なし)
+##	$demoSearchFrom		：「DemoSearchFrom」型
+##
+################################################################################
+## 共通HTMLヘッダ
+#parse("/common/htmlheader.vm")
 
-	<form action="${apcontext}/demomanage/demolist.do" method="POST">
-		<table>
-			<tr>
-				<td>デモID</td>
-				<td>
-					<input type="text" name="demoId" name="demoId" value="$demoSearchFrom.getDemoId()" />
-				</td>
-			</tr>
-			<tr>
-				<td>デモ名&nbsp;※前方一致</td>
-				<td>
-					<input type="text" name="demoName" name="demoName" value="$demoSearchFrom.getDemoName()" />
-				</td>
-			</tr>
-		</table>
-		<br />
+<h1>デモマスタ検索</h1>
 
-		<input type="submit" value="検索" />
-	</form>
+<form action="${apContext}/demomanage/demolist.do" method="POST">
+	<table>
+		<tr>
+			<td>デモID</td>
+			<td>
+				<input type="text" name="demoId" name="demoId" value="$demoSearchFrom.getDemoId()" />
+			</td>
+		</tr>
+		<tr>
+			<td>デモ名&nbsp;※前方一致</td>
+			<td>
+				<input type="text" name="demoName" name="demoName" value="$demoSearchFrom.getDemoName()" />
+			</td>
+		</tr>
+	</table>
+	<br />
 
-	<input type="button" value="戻る" onclick="javascript:location.href='${apcontext}/demomanage/demomanagetop.do'; return false;" />
-</body>
-</html>
+	<input type="submit" value="検索" />
+</form>
+
+<input type="button" value="戻る" onclick="javascript:location.href='${apContext}/demomanage/demomanagetop.do'; return false;" />
+
+## 共通HTMLフッタ
+#parse("/common/htmlfooter.vm")

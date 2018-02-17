@@ -1,0 +1,16 @@
+################################################################################
+##	共通HTMLヘッダ
+##		html・bodyの開始タグが含まれるため、「共通HTMLフッタ」とセットで使うこと。
+##
+##	＜request・session設定期待値＞
+##	$hostName			：「String」型 ※「String」型 ※実行中APサーバホスト名
+##
+################################################################################
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- hostname:[${hostName}] -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+
+## 共通ヘッダタグ
+#parse("/common/headtag.vm")
+
+<body id="bdCommon">

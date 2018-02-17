@@ -3,12 +3,13 @@
  */
 package net.sitsol.victoria.demo.consts;
 
+import net.sitsol.victoria.consts.VctUrlPathConst;
 
 /**
  * デモ用-URLパス定数クラス
  * @author shibano
  */
-public class DemoUrlPathConst {
+public class DemoUrlPathConst extends VctUrlPathConst {
 
 	/** コンストラクタ */
 	protected DemoUrlPathConst() {}
@@ -51,9 +52,11 @@ public class DemoUrlPathConst {
 	public class Root {
 		public static final String DIR = "/";
 		
-		/** Hello */
-		public class Hello {
-			public static final String DIR = Root.DIR + "hello/";
+		/** エラー情報 */
+		public class Errors {
+			public static final String DIR = Root.DIR + "errors/";
+			public static final String SYSTEMERROR_VM = DIR + VctUrlPathConst.SYSTEMERROR_VM;			// システムエラー
+			public static final String SESSIONTIMEOUT_VM	= DIR + VctUrlPathConst.SESSIONTIMEOUT_VM;	// セッションタイムアウト
 		}
 		
 		/** デモマスタ管理 */
