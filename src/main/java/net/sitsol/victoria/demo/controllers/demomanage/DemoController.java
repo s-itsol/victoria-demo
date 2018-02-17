@@ -21,11 +21,11 @@ import net.sitsol.victoria.annotation.servlet.VctFromMapping;
 import net.sitsol.victoria.annotation.servlet.VctInputForward;
 import net.sitsol.victoria.annotation.servlet.VctNoAuth;
 import net.sitsol.victoria.annotation.servlet.VctSuccessForward;
+import net.sitsol.victoria.controllers.VctController;
 import net.sitsol.victoria.demo.beans.cond.DemoSearchCond;
 import net.sitsol.victoria.demo.beans.dto.DemoDto;
 import net.sitsol.victoria.demo.consts.DemoHttpConst;
 import net.sitsol.victoria.demo.consts.DemoUrlPathConst;
-import net.sitsol.victoria.demo.controllers.BsDemoController;
 import net.sitsol.victoria.demo.facades.DemoMasterFacade;
 import net.sitsol.victoria.demo.forms.DemoEditFrom;
 import net.sitsol.victoria.demo.forms.DemoSearchFrom;
@@ -47,7 +47,7 @@ import net.sitsol.victoria.demo.models.demo.DemoModel;
 						, DemoEditFrom.class
 					}
 				)
-public class DemoController extends BsDemoController {
+public class DemoController extends VctController {
 
 	// ページ内パラメータ名 ※requestの属性名、GET・POSTパラメータ名
 	public static final String DEMO_DTO_LIST				= "demoDtoList";		// デモDTOリスト

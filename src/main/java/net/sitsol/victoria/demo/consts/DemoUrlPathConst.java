@@ -7,6 +7,7 @@ import net.sitsol.victoria.consts.VctUrlPathConst;
 
 /**
  * デモ用-URLパス定数クラス
+ * 
  * @author shibano
  */
 public class DemoUrlPathConst extends VctUrlPathConst {
@@ -51,14 +52,12 @@ public class DemoUrlPathConst extends VctUrlPathConst {
 	/** APコンテキストルート */
 	public class Root {
 		public static final String DIR = "/";
-		
 		/** エラー情報 */
 		public class Errors {
 			public static final String DIR = Root.DIR + "errors/";
 			public static final String SYSTEMERROR_VM = DIR + VctUrlPathConst.SYSTEMERROR_VM;			// システムエラー
 			public static final String SESSIONTIMEOUT_VM	= DIR + VctUrlPathConst.SESSIONTIMEOUT_VM;	// セッションタイムアウト
 		}
-		
 		/** デモマスタ管理 */
 		public class DemoManage {
 			public static final String DIR = Root.DIR + "demomanage/";

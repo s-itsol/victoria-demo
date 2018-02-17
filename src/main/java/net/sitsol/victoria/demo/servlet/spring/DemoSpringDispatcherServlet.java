@@ -6,7 +6,6 @@ package net.sitsol.victoria.demo.servlet.spring;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.sitsol.victoria.demo.consts.DemoUrlPathConst;
 import net.sitsol.victoria.log4j.VctLogger;
 import net.sitsol.victoria.setvlet.spring.VctSpringDispatcherServlet;
 
@@ -72,15 +71,6 @@ public class DemoSpringDispatcherServlet extends VctSpringDispatcherServlet {
 	protected void doSessionTimeout(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 
 		super.doSessionTimeout(request, response);
-	}
-
-	/**
-	 * セッションタイムアウト-フォワード先URL取得
-	 * @return フォワード先URL
-	 */
-	protected String getSessionTimeoutForwardUrl() {
-		// セッションタイムアウト・ビューをフォワード先とする
-		return DemoUrlPathConst.Root.Errors.SESSIONTIMEOUT_VM;
 	}
 
 }

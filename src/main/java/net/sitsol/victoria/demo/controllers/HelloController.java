@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import net.sitsol.victoria.controllers.VctController;
 import net.sitsol.victoria.demo.consts.DemoUrlPathConst;
 import net.sitsol.victoria.log4j.VctLogger;
 
@@ -18,7 +19,7 @@ import net.sitsol.victoria.log4j.VctLogger;
  */
 @Controller
 @RequestMapping(DemoUrlPathConst.Root.DIR)
-public class HelloController extends BsDemoController {
+public class HelloController extends VctController {
 
 	@RequestMapping(value = DemoUrlPathConst.WORLD_DO, method = RequestMethod.GET)
 	public String world(Model model) {
