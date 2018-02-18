@@ -13,4 +13,18 @@
 ## 共通ヘッダタグ
 #parse("/common/headtag.vm")
 
+#if($form.getName())
+	#set($formName = $form.getName())
+#else
+	#set($formName = "")
+#end
+
+#if($form.getBean())
+	#set($formClassName = $form.getBean().getClass().getSimpleName())
+#else
+	#set($formClassName = "")
+#end
+
 <body id="bdCommon">
+
+フォーム名：[$formName], フォーム型：[$formClassName]&nbsp;※検証用に表示

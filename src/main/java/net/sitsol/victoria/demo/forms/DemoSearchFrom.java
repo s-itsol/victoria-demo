@@ -20,10 +20,22 @@ public class DemoSearchFrom extends VctFrom {
 	/** フォーム名 */
 	public static final String NAME = "demoSearchFrom";
 
+
+	// -------------------------------------------------------------------------
+	//  field
+	// -------------------------------------------------------------------------
+
 	private String demoId = StringUtils.EMPTY;
 	private String demoName = StringUtils.EMPTY;
 
 
+	// -------------------------------------------------------------------------
+	//  method
+	// -------------------------------------------------------------------------
+
+	/**
+	 * コンストラクタ
+	 */
 	public DemoSearchFrom() {
 		super();
 		
@@ -31,6 +43,9 @@ public class DemoSearchFrom extends VctFrom {
 			VctLogger.getLogger().debug("★DemoSeatchFromコンストラクタ");
 		}
 	}
+
+
+	/*-- setter・getter ------------------------------------------------------*/
 
 	public String getDemoId() {
 		return demoId;

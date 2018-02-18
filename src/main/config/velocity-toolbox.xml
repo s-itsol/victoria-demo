@@ -32,11 +32,6 @@
 		<class>org.apache.velocity.tools.struts.ErrorsTool</class>
 	</tool>
 	<tool>
-		<key>form</key>
-		<scope>request</scope>
-		<class>org.apache.velocity.tools.struts.FormTool</class>
-	</tool>
-	<tool>
 		<key>messages</key>
 		<scope>request</scope>
 		<class>org.apache.velocity.tools.struts.ActionMessagesTool</class>
@@ -50,7 +45,12 @@
 
 	<!-- Victoria Tool -->
 	<tool>
-	<key>stringUtils</key>
+		<key>form</key>
+		<scope>request</scope>
+		<class>net.sitsol.victoria.setvlet.velocity.tools.spring.VctFromTool</class>
+	</tool>
+	<tool>
+		<key>stringUtils</key>
 		<scope>request</scope>
 		<class>net.sitsol.victoria.demo.utils.DemoStringUtils</class>
 	</tool>

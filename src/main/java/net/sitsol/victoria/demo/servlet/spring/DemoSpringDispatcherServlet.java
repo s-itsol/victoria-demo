@@ -6,7 +6,6 @@ package net.sitsol.victoria.demo.servlet.spring;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.sitsol.victoria.log4j.VctLogger;
 import net.sitsol.victoria.setvlet.spring.VctSpringDispatcherServlet;
 
 /**
@@ -16,39 +15,7 @@ import net.sitsol.victoria.setvlet.spring.VctSpringDispatcherServlet;
  */
 public class DemoSpringDispatcherServlet extends VctSpringDispatcherServlet {
 
-	private static final long serialVersionUID = 5478210285799598883L;
-
-	/**
-	 * サービス実行
-	 * @param request HTTPサーブレットリクエスト
-	 * @param response HTTPサーブレットレスポンス
-	 */
-	@Override
-	protected void doService(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		if ( VctLogger.getLogger().isDebugEnabled() ) {
-			VctLogger.getLogger().debug(" -> サービス実行");
-		}
-		
-		// 基底クラスのメソッド実行
-		super.doService(request, response);
-	}
-
-	/**
-	 * ディスパッチ実行
-	 * @param request HTTPサーブレットリクエスト
-	 * @param response HTTPサーブレットレスポンス
-	 */
-	@Override
-	protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		if ( VctLogger.getLogger().isDebugEnabled() ) {
-			VctLogger.getLogger().debug(" -> ディスパッチ実行");
-		}
-		
-		// 基底クラスのメソッド実行
-		super.doDispatch(request, response);
-	}
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 認証判定
@@ -58,19 +25,20 @@ public class DemoSpringDispatcherServlet extends VctSpringDispatcherServlet {
 	 */
 	@Override
 	protected boolean isAuth(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// 
+		// TODO：認証処理はサイト毎にカスタム実装になるはずだが、まだ未実装
 		return super.isAuth(request, response);
 	}
 
 	/**
-	 * セッションタイムアウト実行
+	 * 例外ハンドラ実行
 	 * @param request HTTPサーブレットリクエスト
 	 * @param response HTTPサーブレットレスポンス
+	 * @param exception 発生例外
 	 */
 	@Override
-	protected void doSessionTimeout(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// 
-		super.doSessionTimeout(request, response);
+	protected void doExceptionHanler(HttpServletRequest request, HttpServletResponse response, Exception exception) {
+		// TODO：サイト独自の例外ページ遷移などがあればカスタム実装になるはずだが、まだ未実装
+		super.doExceptionHanler(request, response, exception);
 	}
 
 }

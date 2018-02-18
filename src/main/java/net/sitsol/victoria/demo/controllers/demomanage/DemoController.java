@@ -144,6 +144,8 @@ public class DemoController extends VctController {
 	@VctNoAuth
 	public ModelAndView demoupdateexec(HttpServletRequest request, DemoEditFrom form, RedirectAttributes redirectAttrs) {
 		
+		// TODO：妥当性チェックと、NG時に@VctInputForwardへのフォワードをここに実装する予定
+		
 		// フォーム→モデルへ
 		DemoModel demoModel = form.formToModel();
 		

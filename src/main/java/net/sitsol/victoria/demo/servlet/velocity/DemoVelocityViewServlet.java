@@ -12,6 +12,6 @@ import net.sitsol.victoria.setvlet.velocity.VctVelocityViewServlet;
  */
 public class DemoVelocityViewServlet extends VctVelocityViewServlet {
 
-	private static final long serialVersionUID = -9117452998672151908L;
+	private static final long serialVersionUID = 1L;
 
 }

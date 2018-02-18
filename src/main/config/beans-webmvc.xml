@@ -25,20 +25,36 @@
 	<!-- 静的コンテンツファイルパス ※アプリケーション・ルートからののパス -->
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
 
-	<!-- リゾルバー設定
-		※Velocityサーブレットにフォワードする
-	-->
+	<!-- リソースビュー・リゾルバ -->
+<!--
+	※Victoriaでは今のところ利用用途なし
+	  プログラム内で「.vm」「.do」などのフォワード先ページ拡張子を明示させるため、
+	  あえて「suffix」のプロパティは空文字にしており、特に使う用途が無い。
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="" />
-		<property name="suffix" value="" /><!-- ※プログラム内で「.vm」「.do」などのフォワード先ページ拡張子を明示させるため、あえて「suffix」のプロパティは空文字にしている -->
+		<property name="suffix" value="" />
 	</bean>
+-->
+
+	<!-- 例外ハンドラ・リゾルバ  -->
+<!--
+	※Victoriaでは今のところ利用用途なし
+	  昔ながらのオブジェクト指向言語らしく、サーブレットをオーバーライド拡充して事足りているため、
+	  あえて処理を散らさない。
+	<bean class="net.sitsol.victoria.setvlet.spring.VctSpringHandlerExceptionResolver" />
+-->
 
 	<!-- コントローラ・インターセプタ -->
+<!--
+	※Victoriaでは今のところ利用用途なし
+	  昔ながらのオブジェクト指向言語らしく、サーブレットをオーバーライド拡充して事足りているため、
+	  あえて処理を散らさない。
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
-			<bean class="net.sitsol.victoria.demo.servlet.spring.DemoHandlerInterceptor" />
+			<bean class="net.sitsol.victoria.setvlet.spring.VctSpringHandlerInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
-	
+-->
+
 </beans>

@@ -19,8 +19,21 @@ public class DemoEditFrom extends VctFrom {
 	/** フォーム名 */
 	public static final String NAME = "demoEditFrom";
 
+
+	// -------------------------------------------------------------------------
+	//  field
+	// -------------------------------------------------------------------------
+
 	private DemoModel model = new DemoModel();
 
+
+	// -------------------------------------------------------------------------
+	//  method
+	// -------------------------------------------------------------------------
+
+	/**
+	 * コンストラクタ
+	 */
 	public DemoEditFrom() {
 		super();
 		
@@ -52,6 +65,9 @@ public class DemoEditFrom extends VctFrom {
 		
 		return demoModel;
 	}
+
+
+	/*-- setter・getter ------------------------------------------------------*/
 
 	public String getDemoId() {
 		return this.getModel().getDemoId();
