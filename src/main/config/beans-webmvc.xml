@@ -19,6 +19,13 @@
 	<context:component-scan base-package="net.sitsol.victoria.controllers" />
 	<context:component-scan base-package="net.sitsol.victoria.demo.controllers" />
 
+	<!--  -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="sessionAttributeStore">
+			<bean class="net.sitsol.victoria.setvlet.spring.VctSessionAttributeStore" />
+		</property>
+	</bean>
+
 	<!-- Spring-MVCのアノテーション使用設定 -->
 	<mvc:annotation-driven />
 
@@ -45,16 +52,11 @@
 -->
 
 	<!-- コントローラ・インターセプタ -->
-<!--
-	※Victoriaでは今のところ利用用途なし
-	  昔ながらのオブジェクト指向言語らしく、サーブレットをオーバーライド拡充して事足りているため、
-	  あえて処理を散らさない。
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
 			<bean class="net.sitsol.victoria.setvlet.spring.VctSpringHandlerInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
--->
 
 </beans>
