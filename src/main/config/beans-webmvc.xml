@@ -20,11 +20,13 @@
 	<context:component-scan base-package="net.sitsol.victoria.demo.controllers" />
 
 	<!--  -->
+<!--
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="sessionAttributeStore">
 			<bean class="net.sitsol.victoria.setvlet.spring.VctSessionAttributeStore" />
 		</property>
 	</bean>
+-->
 
 	<!-- Spring-MVCのアノテーション使用設定 -->
 	<mvc:annotation-driven />

@@ -3,7 +3,7 @@
 ##
 ##	＜request・session設定期待値＞
 ##	$apContext			：「String」型 ※APコンテンツルートURLパス(末尾「/」なし)
-##	$demoEditFrom		：「DemoEditFrom」型
+##	$DemoEditFrom		：「DemoEditFrom」型
 ##
 ################################################################################
 ## 共通HTMLヘッダ
@@ -20,18 +20,18 @@
 	<table>
 		<tr>
 			<th>デモID</th>
-			<td>$demoEditFrom.getDemoId()</td>
+			<td>$DemoEditFrom.getDemoId()</td>
 		</tr>
 		<tr>
 			<th>デモ名</th>
 			<td>
-				<input type="text" name="demoName" value="$demoEditFrom.getDemoName()" />
+				<input type="text" name="demoName" value="$DemoEditFrom.getDemoName()" />
 			</td>
 		</tr>
 		<tr>
 			<th>詳細</th>
 			<td>
-				<textarea name="demoDetail" rows="4" cols="40">$demoEditFrom.getDemoDetail()</textarea>
+				<textarea name="demoDetail" rows="4" cols="40">$DemoEditFrom.getDemoDetail()</textarea>
 			</td>
 		</tr>
 	</table>

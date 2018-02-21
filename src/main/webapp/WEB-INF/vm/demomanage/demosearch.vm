@@ -3,7 +3,7 @@
 ##
 ##	＜request・session設定期待値＞
 ##	$apContext			：「String」型 ※APコンテンツルートURLパス(末尾「/」なし)
-##	$demoSearchFrom		：「DemoSearchFrom」型
+##	$DemoSearchFrom		：「DemoSearchFrom」型
 ##
 ################################################################################
 ## 共通HTMLヘッダ
@@ -16,13 +16,13 @@
 		<tr>
 			<td>デモID</td>
 			<td>
-				<input type="text" name="demoId" name="demoId" value="$demoSearchFrom.getDemoId()" />
+				<input type="text" name="demoId" name="demoId" value="$DemoSearchFrom.getDemoId()" />
 			</td>
 		</tr>
 		<tr>
 			<td>デモ名&nbsp;※前方一致</td>
 			<td>
-				<input type="text" name="demoName" name="demoName" value="$demoSearchFrom.getDemoName()" />
+				<input type="text" name="demoName" name="demoName" value="$DemoSearchFrom.getDemoName()" />
 			</td>
 		</tr>
 	</table>

@@ -9,12 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,7 +30,6 @@ import net.sitsol.victoria.demo.facades.DemoMasterFacade;
 import net.sitsol.victoria.demo.forms.DemoEditFrom;
 import net.sitsol.victoria.demo.forms.DemoSearchFrom;
 import net.sitsol.victoria.demo.models.demo.DemoModel;
-import net.sitsol.victoria.log4j.VctLogger;
 
 /**
  * デモ用マスタ管理-コントローラ
@@ -56,12 +52,14 @@ public class DemoController extends VctController {
 	// ページ内パラメータ名 ※requestの属性名、GET・POSTパラメータ名
 	public static final String DEMO_DTO_LIST				= "demoDtoList";		// デモDTOリスト
 
-	// これがActionFrom#resetメソッドの代わり
+//	// これがActionFrom#resetメソッドの代わり
 //	@InitBinder(DemoSearchFrom.NAME) 
-//	public void resetFrom(HttpServletRequest request, WebDataBinder binder) {
+//	public void resetDemoSearchFrom(HttpServletRequest request, WebDataBinder binder) {
+//		
 //		DemoSearchFrom targetObj = (DemoSearchFrom) binder.getTarget();
 //		if ( targetObj != null ) {
 //			targetObj.setDemoId("");
+//			targetObj.setDemoName("");
 //		}
 //		
 //		VctLogger.getLogger().info("★★★" + targetObj);

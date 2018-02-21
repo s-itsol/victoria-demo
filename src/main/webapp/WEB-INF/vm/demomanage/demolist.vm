@@ -3,7 +3,7 @@
 ##
 ##	＜request・session設定期待値＞
 ##	$apContext			：「String」型 ※APコンテンツルートURLパス(末尾「/」なし)
-##	$demoSearchFrom		：「DemoSearchFrom」型
+##	$DemoSearchFrom		：「DemoSearchFrom」型
 ##	$demoDtoList		：「List<DemoDto>」型
 ##
 ################################################################################
@@ -13,8 +13,8 @@
 <h1>デモマスタ一覧</h1>
 
 ＜検索条件＞<br />
-デモID：$demoSearchFrom.getDemoId()<br />
-デモ名：$demoSearchFrom.getDemoName()<br />
+デモID：$DemoSearchFrom.getDemoId()<br />
+デモ名：$DemoSearchFrom.getDemoName()<br />
 <br />
 
 <table>
