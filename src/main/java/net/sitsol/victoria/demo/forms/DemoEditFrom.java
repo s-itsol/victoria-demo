@@ -4,7 +4,7 @@
 package net.sitsol.victoria.demo.forms;
 
 import net.sitsol.victoria.demo.models.demo.DemoModel;
-import net.sitsol.victoria.forms.VctFrom;
+import net.sitsol.victoria.forms.VctForm;
 import net.sitsol.victoria.log4j.VctLogger;
 
 /**
@@ -12,7 +12,7 @@ import net.sitsol.victoria.log4j.VctLogger;
  * 
  * @author shibano
  */
-public class DemoEditFrom extends VctFrom {
+public class DemoEditFrom extends VctForm {
 
 	private static final long serialVersionUID = -526320656401787846L;
 

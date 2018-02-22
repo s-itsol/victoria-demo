@@ -52,19 +52,6 @@ public class DemoController extends VctController {
 	// ページ内パラメータ名 ※requestの属性名、GET・POSTパラメータ名
 	public static final String DEMO_DTO_LIST				= "demoDtoList";		// デモDTOリスト
 
-//	// これがActionFrom#resetメソッドの代わり
-//	@InitBinder(DemoSearchFrom.NAME) 
-//	public void resetDemoSearchFrom(HttpServletRequest request, WebDataBinder binder) {
-//		
-//		DemoSearchFrom targetObj = (DemoSearchFrom) binder.getTarget();
-//		if ( targetObj != null ) {
-//			targetObj.setDemoId("");
-//			targetObj.setDemoName("");
-//		}
-//		
-//		VctLogger.getLogger().info("★★★" + targetObj);
-//	}
-
 	/**
 	 * デモ用マスタ管理トップ
 	 * @param form デモマスタ検索フォーム

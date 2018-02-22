@@ -5,7 +5,7 @@ package net.sitsol.victoria.demo.forms;
 
 import org.apache.commons.lang.StringUtils;
 
-import net.sitsol.victoria.forms.VctFrom;
+import net.sitsol.victoria.forms.VctForm;
 import net.sitsol.victoria.log4j.VctLogger;
 
 /**
@@ -13,7 +13,7 @@ import net.sitsol.victoria.log4j.VctLogger;
  * 
  * @author shibano
  */
-public class DemoSearchFrom extends VctFrom {
+public class DemoSearchFrom extends VctForm {
 
 	private static final long serialVersionUID = -1292672257885710969L;
 	
@@ -27,6 +27,7 @@ public class DemoSearchFrom extends VctFrom {
 
 	private String demoId = StringUtils.EMPTY;
 	private String demoName = StringUtils.EMPTY;
+	private String demoFlg = "0";
 
 
 	// -------------------------------------------------------------------------
@@ -61,6 +62,14 @@ public class DemoSearchFrom extends VctFrom {
 
 	public void setDemoName(String demoName) {
 		this.demoName = demoName;
+	}
+
+	public String getDemoFlg() {
+		return demoFlg;
+	}
+
+	public void setDemoFlg(String demoFlg) {
+		this.demoFlg = demoFlg;
 	}
 
 }

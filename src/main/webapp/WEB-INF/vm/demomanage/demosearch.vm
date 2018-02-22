@@ -16,13 +16,24 @@
 		<tr>
 			<td>デモID</td>
 			<td>
-				<input type="text" name="demoId" name="demoId" value="$DemoSearchFrom.getDemoId()" />
+				<input type="text" id="txtDemoId" name="demoId" value="$DemoSearchFrom.getDemoId()" />
 			</td>
 		</tr>
 		<tr>
 			<td>デモ名&nbsp;※前方一致</td>
 			<td>
-				<input type="text" name="demoName" name="demoName" value="$DemoSearchFrom.getDemoName()" />
+				<input type="text" id="txtDemoName" name="demoName" value="$DemoSearchFrom.getDemoName()" />
+			</td>
+		</tr>
+		<tr>
+			<td>デモフラグ</td>
+			<td>
+				<input type="checkbox" id="chkDemoFlg" name="demoFlg" value="1"
+					#if("$DemoSearchFrom.getDemoFlg()" == "1")
+						checked
+					#end
+				/>
+				確認する
 			</td>
 		</tr>
 	</table>
