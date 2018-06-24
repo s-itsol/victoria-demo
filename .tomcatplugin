@@ -23,13 +23,14 @@
         <webClassPathEntry>/victoria-libs/commons-logging-1.2.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/commons-validator-1.5.1.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/log4j-1.2.12.jar</webClassPathEntry>
-        <webClassPathEntry>/victoria-libs/spring-aop-4.3.9.RELEASE.jar</webClassPathEntry>
-        <webClassPathEntry>/victoria-libs/spring-beans-4.3.9.RELEASE.jar</webClassPathEntry>
-        <webClassPathEntry>/victoria-libs/spring-context-4.3.9.RELEASE.jar</webClassPathEntry>
-        <webClassPathEntry>/victoria-libs/spring-core-4.3.9.RELEASE.jar</webClassPathEntry>
-        <webClassPathEntry>/victoria-libs/spring-expression-4.3.9.RELEASE.jar</webClassPathEntry>
-        <webClassPathEntry>/victoria-libs/spring-web-4.3.9.RELEASE.jar</webClassPathEntry>
-        <webClassPathEntry>/victoria-libs/spring-webmvc-4.3.9.RELEASE.jar</webClassPathEntry>
+        <webClassPathEntry>/victoria-libs/spring-aop-5.0.7.RELEASE.jar</webClassPathEntry>
+        <webClassPathEntry>/victoria-libs/spring-beans-5.0.7.RELEASE.jar</webClassPathEntry>
+        <webClassPathEntry>/victoria-libs/spring-context-5.0.7.RELEASE.jar</webClassPathEntry>
+        <webClassPathEntry>/victoria-libs/spring-core-5.0.7.RELEASE.jar</webClassPathEntry>
+        <webClassPathEntry>/victoria-libs/spring-expression-5.0.7.RELEASE.jar</webClassPathEntry>
+        <webClassPathEntry>/victoria-libs/spring-jcl-5.0.7.RELEASE.jar</webClassPathEntry>
+        <webClassPathEntry>/victoria-libs/spring-web-5.0.7.RELEASE.jar</webClassPathEntry>
+        <webClassPathEntry>/victoria-libs/spring-webmvc-5.0.7.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/velocity-1.7.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/velocity-tools-2.0.jar</webClassPathEntry>
         <webClassPathEntry>/victoria/bin</webClassPathEntry>
