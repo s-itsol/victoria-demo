@@ -26,7 +26,6 @@
         <webClassPathEntry>/victoria-libs/spring-aop-4.3.9.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/spring-beans-4.3.9.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/spring-context-4.3.9.RELEASE.jar</webClassPathEntry>
-        <webClassPathEntry>/victoria-libs/spring-context-support-4.3.9.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/spring-core-4.3.9.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/spring-expression-4.3.9.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/spring-web-4.3.9.RELEASE.jar</webClassPathEntry>
