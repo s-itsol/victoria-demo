@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.time.StopWatch;
+import org.apache.commons.lang3.tuple.Pair;
 
 import com.sun.org.apache.xalan.internal.xsltc.runtime.Parameter;
 
@@ -43,9 +44,9 @@ public class HttpRequesterJdkDemo extends BsDemoExecute {
 
 			String url = "http://s-itsol.net/unnown_page.html";		// ※存在しないURL
 			// POSTパラメータリスト生成
-			List<Parameter> parameterList = new ArrayList<>();
+			List<Pair<String, String>> parameterList = new ArrayList<>();
 			{
-				parameterList.add( new Parameter("dummy", "0") );
+				parameterList.add( Pair.of("dummy", "0") );
 			}
 
 			try {
@@ -93,10 +94,10 @@ public class HttpRequesterJdkDemo extends BsDemoExecute {
 			// リクエストURL生成
 			String url = DemoStaticApParam.getInstance().getZipApiBaseUrl() + DemoStaticApParam.getInstance().getZipApiXmlPageUrl();
 			// POSTパラメータリスト生成
-			List<Parameter> parameterList = new ArrayList<>();
+			List<Pair<String, String>> parameterList = new ArrayList<>();
 			{
-				parameterList.add( new Parameter("zn", targetZipCode) );
-				parameterList.add( new Parameter("ver", "0") );
+				parameterList.add( Pair.of("zn", targetZipCode) );
+				parameterList.add( Pair.of("ver", "0") );
 			}
 
 			org.apache.commons.lang.time.StopWatch stopWatch = new StopWatch();
