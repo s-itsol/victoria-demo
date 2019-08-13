@@ -36,6 +36,6 @@
         <webClassPathEntry>/victoria-libs/spring-webmvc-5.0.7.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/velocity-1.7.jar</webClassPathEntry>
         <webClassPathEntry>/victoria-libs/velocity-tools-2.0.jar</webClassPathEntry>
-        <webClassPathEntry>/victoria/bin</webClassPathEntry>
+        <webClassPathEntry>/victoria/bin/main</webClassPathEntry>
     </webClassPathEntries>
 </tomcatProjectProperties>
